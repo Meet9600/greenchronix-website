@@ -2,7 +2,7 @@
 
 import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 import Link from "next/link";
-import { useRef, useState, type FormEvent, type ReactNode } from "react";
+import { useEffect, useRef, useState, type FormEvent, type ReactNode } from "react";
 import { GreenBytesLogo, GreenBytesMark } from "./components/greenbytes-logo";
 import { buildWhatsAppUrl, getBookingUrl, siteConfig } from "./lib/site";
 
@@ -657,10 +657,12 @@ function TextArea({
   label,
   name,
   placeholder,
+  defaultValue,
 }: {
   label: string;
   name: string;
   placeholder: string;
+  defaultValue?: string;
 }) {
   return (
     <label className="grid gap-1.5 text-sm">
@@ -668,6 +670,7 @@ function TextArea({
       <textarea
         name={name}
         placeholder={placeholder}
+        defaultValue={defaultValue}
         className="min-h-[7.5rem] rounded-2xl border border-white/[0.1] bg-black/40 px-4 py-3 text-zinc-50 placeholder:text-zinc-600 focus:border-emerald-400/45 focus:outline-none focus:ring-2 focus:ring-emerald-400/15"
       />
     </label>
@@ -725,11 +728,43 @@ function MagneticButton({
  * WhatsApp if the server isn't configured or if the request fails.
  * Honeypot field (`company`) catches simple bots; real users never fill it.
  */
+/**
+ * Maps tier slug (from ?tier=... URL param) to a pre-filled details message.
+ * Lets the pricing page deep-link visitors into the contact form with context.
+ */
+const TIER_PREFILL: Record<string, string> = {
+  starter:
+    "Hi! I'm interested in the Starter package. Here's a quick overview of what I'm thinking:\n\n",
+  growth:
+    "Hi! I'm interested in the Growth package. Here's the project:\n\n",
+  custom:
+    "Hi! I'd like to discuss a Custom engagement. Quick context:\n\n",
+};
+
 function ContactForm() {
   const [status, setStatus] = useState<"idle" | "sending" | "sent-email" | "sent-whatsapp">(
     "idle"
   );
   const [error, setError] = useState<string | null>(null);
+
+  // Read the ?tier=... URL param once on mount and use it as the initial
+  // textarea value. Lazy initializer keeps this out of useEffect.
+  const [prefillDetails] = useState<string>(() => {
+    if (typeof window === "undefined") return "";
+    const params = new URLSearchParams(window.location.search);
+    const tier = params.get("tier");
+    return tier && TIER_PREFILL[tier] ? TIER_PREFILL[tier] : "";
+  });
+
+  // If a tier prefill was applied, focus the textarea and place cursor at end.
+  useEffect(() => {
+    if (!prefillDetails) return;
+    const el = document.querySelector<HTMLTextAreaElement>('textarea[name="details"]');
+    if (el) {
+      el.focus();
+      el.setSelectionRange(el.value.length, el.value.length);
+    }
+  }, [prefillDetails]);
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -892,7 +927,13 @@ function ContactForm() {
         <Input label="Name" name="name" placeholder="Your name" />
         <Input label="Email" name="email" placeholder="your@email.com" type="email" />
         <Input label="Budget (optional)" name="budget" placeholder="₹25k · $1.2k · Let's talk" />
-        <TextArea label="Project details" name="details" placeholder="Goals, timeline, links…" />
+        <TextArea
+          key={prefillDetails || "empty"}
+          label="Project details"
+          name="details"
+          placeholder="Goals, timeline, links…"
+          defaultValue={prefillDetails}
+        />
 
         {/* Honeypot — hidden from humans, visible to bots */}
         <label

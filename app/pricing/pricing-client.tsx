@@ -7,6 +7,7 @@ const easeOutExpo = [0.22, 1, 0.36, 1] as const;
 
 type Tier = {
   name: string;
+  slug: string;
   tagline: string;
   ideal: string;
   features: string[];
@@ -18,6 +19,7 @@ type Tier = {
 const tiers: Tier[] = [
   {
     name: "Starter",
+    slug: "starter",
     tagline: "Land your idea online — fast.",
     ideal: "Solo founders, small businesses, portfolio sites.",
     timeline: "7–10 days",
@@ -34,6 +36,7 @@ const tiers: Tier[] = [
   },
   {
     name: "Growth",
+    slug: "growth",
     tagline: "For teams that need real product work.",
     ideal: "Startups, SaaS shells, internal tools, CMS-driven sites.",
     timeline: "2–4 weeks",
@@ -52,6 +55,7 @@ const tiers: Tier[] = [
   },
   {
     name: "Custom",
+    slug: "custom",
     tagline: "Bespoke builds & ongoing partnerships.",
     ideal: "Larger products, automation suites, monthly care plans.",
     timeline: "Scoped to fit",
@@ -203,9 +207,7 @@ function TierCard({ tier, delay }: { tier: Tier; delay: number }) {
         </ul>
 
         <motion.a
-          href={buildWhatsAppUrl(tier.ctaMessage)}
-          target="_blank"
-          rel="noopener noreferrer"
+          href={`/#contact?tier=${tier.slug}`}
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
           className={`mt-7 inline-flex items-center justify-center gap-2 rounded-2xl px-5 py-3.5 text-sm font-semibold transition-colors ${
@@ -216,6 +218,14 @@ function TierCard({ tier, delay }: { tier: Tier; delay: number }) {
         >
           Get a quote <span aria-hidden>→</span>
         </motion.a>
+        <a
+          href={buildWhatsAppUrl(tier.ctaMessage)}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mt-3 inline-flex items-center justify-center gap-1.5 text-xs font-medium text-zinc-400 transition-colors hover:text-[#34d399]"
+        >
+          Or chat on WhatsApp <span aria-hidden>→</span>
+        </a>
       </div>
     </motion.div>
   );
