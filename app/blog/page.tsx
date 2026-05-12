@@ -6,7 +6,7 @@ import { getAllPosts } from "../lib/blog";
 export const metadata: Metadata = {
   title: "Blog",
   description:
-    "Notes on shipping software fast, automation ROI, and keeping stacks lean. Written by the GreenBytes team.",
+    "Notes on shipping software fast, automation ROI, and keeping stacks lean. Written by the GreenChronix team.",
   alternates: { canonical: "/blog" },
 };
 

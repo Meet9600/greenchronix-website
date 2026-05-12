@@ -146,8 +146,9 @@ export default function HomeContent() {
               </motion.h1>
 
               <motion.p variants={fadeUp} className="mt-6 max-w-xl text-pretty text-lg text-zinc-400">
-                GreenBytes builds websites, apps, automation, and data tools with clean code, honest
-                timelines, and long-term care — so your stack stays efficient, not bloated.
+                {siteConfig.name} builds websites, apps, automation, and data tools with clean
+                code, honest timelines, and long-term care &mdash; so your stack stays efficient,
+                not bloated.
               </motion.p>
 
               <motion.div variants={fadeUp} className="mt-9 flex flex-wrap gap-3">
@@ -237,8 +238,8 @@ export default function HomeContent() {
               Hi! We&rsquo;re{" "}
               <span className="font-semibold text-white">{siteConfig.founders.primary}</span> and{" "}
               <span className="font-semibold text-white">{siteConfig.founders.secondary}</span>{" "}
-              &mdash; GreenBytes. We ship modern web experiences, automate repetitive work, and
-              visualize what matters, with the clarity and footprint of a small team.
+              &mdash; {siteConfig.name}. We ship modern web experiences, automate repetitive
+              work, and visualize what matters, with the clarity and footprint of a small team.
             </p>
             <div className="relative mt-8 grid gap-4 md:grid-cols-3">
               <Mini
@@ -280,7 +281,7 @@ export default function HomeContent() {
                   <dt className="text-zinc-500">WhatsApp</dt>
                   <dd className="font-semibold text-white">
                     <a
-                      href={buildWhatsAppUrl("Hi GreenBytes! I'd like to chat about a project.")}
+                      href={buildWhatsAppUrl("Hi GreenChronix! I'd like to chat about a project.")}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="hover:text-[#34d399] transition-colors"
@@ -311,7 +312,7 @@ export default function HomeContent() {
         <footer className="mx-auto max-w-6xl border-t border-white/[0.06] px-6 py-12 text-sm text-zinc-500">
           <div className="flex flex-col items-start justify-between gap-4 md:flex-row md:items-center">
             <p>
-              © {new Date().getFullYear()} GreenBytes. Smart tech, greener future — built with Next.js
+              © {new Date().getFullYear()} {siteConfig.name}. {siteConfig.tagline} — built with Next.js
               & motion.
             </p>
             <div className="flex gap-6 text-xs">
@@ -799,7 +800,7 @@ function ContactForm() {
     // Build the WhatsApp fallback message ahead of time so we can use it
     // if the API request fails or isn't configured yet.
     const whatsappMessage = [
-      `Hi GreenBytes! New project inquiry:`,
+      `Hi GreenChronix! New project inquiry:`,
       ``,
       `Name: ${name}`,
       `Email: ${email}`,
@@ -861,7 +862,7 @@ function ContactForm() {
           <p className="mt-2 text-sm text-zinc-400">
             Thanks &mdash; we&rsquo;ll reply within 24 hours. Need something faster?{" "}
             <a
-              href={buildWhatsAppUrl("Hi GreenBytes! Just sent the form, wanted to follow up.")}
+              href={buildWhatsAppUrl("Hi GreenChronix! Just sent the form, wanted to follow up.")}
               target="_blank"
               rel="noopener noreferrer"
               className="text-[#34d399] hover:underline"
@@ -898,7 +899,7 @@ function ContactForm() {
           <p className="mt-2 text-sm text-zinc-400">
             Hit send there and we&rsquo;ll reply within 24 hours. Didn&rsquo;t open?{" "}
             <a
-              href={buildWhatsAppUrl("Hi GreenBytes! I tried the form but it didn't open WhatsApp.")}
+              href={buildWhatsAppUrl("Hi GreenChronix! I tried the form but it didn't open WhatsApp.")}
               target="_blank"
               rel="noopener noreferrer"
               className="text-[#34d399] hover:underline"
@@ -979,7 +980,7 @@ function ContactForm() {
         <div className="flex items-center justify-between gap-3 text-xs text-zinc-500">
           <span>We reply within 24 hours.</span>
           <a
-            href={buildWhatsAppUrl("Hi GreenBytes! I'd like to chat about a project.")}
+            href={buildWhatsAppUrl("Hi GreenChronix! I'd like to chat about a project.")}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-1.5 font-medium text-[#34d399] hover:text-emerald-200 transition-colors"

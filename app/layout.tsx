@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     "data dashboards",
     "Gandhinagar developers",
     "lean IT",
-    "GreenBytes",
+    "GreenChronix",
   ],
   authors: [{ name: siteConfig.name }],
   creator: siteConfig.name,

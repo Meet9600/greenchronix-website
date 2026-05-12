@@ -32,7 +32,7 @@ const tiers: Tier[] = [
       "14 days of post-launch support",
     ],
     ctaMessage:
-      "Hi GreenBytes! I'm interested in the Starter package. Here's what I'm thinking: ",
+      "Hi GreenChronix! I'm interested in the Starter package. Here's what I'm thinking: ",
   },
   {
     name: "Growth",
@@ -51,7 +51,7 @@ const tiers: Tier[] = [
       "30 days of post-launch support",
     ],
     ctaMessage:
-      "Hi GreenBytes! I'm interested in the Growth package. Here's the project: ",
+      "Hi GreenChronix! I'm interested in the Growth package. Here's the project: ",
   },
   {
     name: "Custom",
@@ -69,7 +69,7 @@ const tiers: Tier[] = [
       "Retainer or per-sprint billing",
     ],
     ctaMessage:
-      "Hi GreenBytes! I'd like to discuss a Custom engagement. Quick context: ",
+      "Hi GreenChronix! I'd like to discuss a Custom engagement. Quick context: ",
   },
 ];
 

@@ -15,7 +15,7 @@ import { siteConfig } from "../../lib/site";
  * Env vars (set in Vercel project settings):
  *   RESEND_API_KEY   — your Resend API key (required for email sending)
  *   CONTACT_TO_EMAIL — where leads should be delivered (defaults to siteConfig.email)
- *   RESEND_FROM      — verified sender, e.g. "GreenBytes <hello@yourdomain.com>"
+ *   RESEND_FROM      — verified sender, e.g. "GreenChronix <hello@yourdomain.com>"
  *                       (defaults to Resend's onboarding sender so it works
  *                        immediately while you set up domain verification)
  */
