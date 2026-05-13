@@ -47,7 +47,7 @@ export default function HomeContent() {
   });
 
   return (
-    <div className="relative min-h-screen overflow-hidden bg-[#040806] text-zinc-50">
+    <div className="relative min-h-screen overflow-x-hidden bg-[#040806] text-zinc-50">
       <AmbientBackground />
       <GrainOverlay />
 
@@ -530,6 +530,19 @@ function SectionMotion({
   );
 }
 
+/** True when the device has real hover (mouse/trackpad), not touch-first — avoids scroll jank on phones. */
+function useFinePointerHover() {
+  const [matches, setMatches] = useState(false);
+  useEffect(() => {
+    const mq = window.matchMedia("(hover: hover) and (pointer: fine)");
+    const update = () => setMatches(mq.matches);
+    update();
+    mq.addEventListener("change", update);
+    return () => mq.removeEventListener("change", update);
+  }, []);
+  return matches;
+}
+
 function HoverLiftCard({
   title,
   desc,
@@ -541,6 +554,7 @@ function HoverLiftCard({
   items: string[];
   hue: "emerald" | "green" | "teal";
 }) {
+  const finePointerHover = useFinePointerHover();
   const ring =
     hue === "emerald"
       ? "hover:shadow-emerald-500/25"
@@ -560,8 +574,8 @@ function HoverLiftCard({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-40px" }}
       transition={{ duration: 0.5, ease: easeOutExpo }}
-      whileHover={{ y: -6 }}
-      className={`group relative overflow-hidden rounded-3xl border border-white/[0.08] bg-white/[0.03] p-6 shadow-[0_24px_80px_-48px_rgba(0,0,0,0.9)] transition-shadow duration-300 hover:border-white/[0.14] hover:shadow-2xl ${ring}`}
+      whileHover={finePointerHover ? { y: -6 } : undefined}
+      className={`group relative touch-pan-y overflow-hidden rounded-3xl border border-white/[0.08] bg-white/[0.03] p-6 shadow-[0_24px_80px_-48px_rgba(0,0,0,0.9)] transition-shadow duration-300 hover:border-white/[0.14] hover:shadow-2xl ${ring}`}
     >
       <div
         className={`pointer-events-none absolute -right-12 -top-12 h-40 w-40 rounded-full bg-gradient-to-br ${glow} to-transparent opacity-0 blur-2xl transition-opacity duration-300 group-hover:opacity-100`}

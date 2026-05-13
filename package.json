@@ -7,8 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "deploy": "npx vercel@latest deploy --prod",
-    "deploy:preview": "npx vercel@latest deploy"
+    "deploy": "npx vercel@latest deploy --prod --yes --scope meet9600600patel-1725s-projects",
+    "deploy:preview": "npx vercel@latest deploy --yes --scope meet9600600patel-1725s-projects"
   },
   "dependencies": {
     "framer-motion": "^12.38.0",
