@@ -44,3 +44,43 @@ body {
     scroll-behavior: auto !important;
   }
 }
+
+/* Slow shimmer across premium cards (disabled when user prefers reduced motion) */
+@keyframes gb-shine-sweep {
+  0%,
+  78% {
+    transform: translateX(-120%) skewX(-14deg);
+  }
+  100% {
+    transform: translateX(220%) skewX(-14deg);
+  }
+}
+
+.gb-card-shine {
+  position: relative;
+}
+
+.gb-card-shine::before {
+  content: "";
+  position: absolute;
+  inset: -40% -60%;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(
+    105deg,
+    transparent 38%,
+    rgba(255, 255, 255, 0.04) 45%,
+    rgba(255, 255, 255, 0.1) 50%,
+    rgba(255, 255, 255, 0.04) 55%,
+    transparent 62%
+  );
+  transform: translateX(-120%) skewX(-14deg);
+  animation: gb-shine-sweep 11s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gb-card-shine::before {
+    animation: none;
+    opacity: 0;
+  }
+}

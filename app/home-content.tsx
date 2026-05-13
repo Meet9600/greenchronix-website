@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useScroll, useSpring, useTransform } from "framer-motion";
+import { motion, MotionConfig, useScroll, useSpring, useTransform } from "framer-motion";
 import Link from "next/link";
 import { useEffect, useRef, useState, type FormEvent, type ReactNode } from "react";
 import { GreenBytesLogo, GreenBytesMark } from "./components/greenbytes-logo";
@@ -9,17 +9,17 @@ import { buildWhatsAppUrl, getBookingUrl, siteConfig } from "./lib/site";
 const easeOutExpo = [0.22, 1, 0.36, 1] as const;
 
 const fadeUp = {
-  hidden: { opacity: 0, y: 28 },
+  hidden: { opacity: 0, y: 32 },
   show: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.55, ease: easeOutExpo },
+    transition: { duration: 0.58, ease: easeOutExpo },
   },
 };
 
 const stagger = {
   show: {
-    transition: { staggerChildren: 0.08, delayChildren: 0.12 },
+    transition: { staggerChildren: 0.1, delayChildren: 0.14 },
   },
 };
 
@@ -31,6 +31,55 @@ const wordReveal = {
     filter: "blur(0px)",
     transition: { duration: 0.65, ease: easeOutExpo },
   },
+};
+
+const springReveal = { type: "spring" as const, stiffness: 220, damping: 28, mass: 0.85 };
+
+const sectionHeadContainer = {
+  hidden: {},
+  show: {
+    transition: { staggerChildren: 0.1, delayChildren: 0.02 },
+  },
+};
+
+const sectionEyebrow = {
+  hidden: { opacity: 0, x: -14 },
+  show: { opacity: 1, x: 0, transition: { duration: 0.5, ease: easeOutExpo } },
+};
+
+const sectionLine = {
+  hidden: { scaleX: 0, opacity: 0 },
+  show: {
+    scaleX: 1,
+    opacity: 1,
+    transition: { duration: 0.85, ease: easeOutExpo },
+  },
+};
+
+const sectionTitle = {
+  hidden: { opacity: 0, y: 40, filter: "blur(10px)" },
+  show: {
+    opacity: 1,
+    y: 0,
+    filter: "blur(0px)",
+    transition: { duration: 0.7, ease: easeOutExpo },
+  },
+};
+
+const sectionSubtitle = {
+  hidden: { opacity: 0, y: 22 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: easeOutExpo },
+  },
+};
+
+const SECTION_LABEL: Record<string, string> = {
+  services: "Capabilities",
+  projects: "Proof of work",
+  about: "The team",
+  contact: "Start a project",
 };
 
 export default function HomeContent() {
@@ -48,7 +97,8 @@ export default function HomeContent() {
   });
 
   return (
-    <div className="relative min-h-screen overflow-x-hidden bg-[#040806] text-zinc-50">
+    <MotionConfig reducedMotion="user">
+      <div className="relative min-h-screen overflow-x-hidden bg-[#040806] text-zinc-50">
       <AmbientBackground />
       <GrainOverlay />
 
@@ -184,18 +234,21 @@ export default function HomeContent() {
         >
           <div className="grid gap-5 md:grid-cols-3">
             <HoverLiftCard
+              index={0}
               title="Websites & Web Apps"
               desc="Landing pages, portfolios, SaaS shells, internal tools — fast, responsive, and built to scale."
               items={["Responsive UI & motion polish", "SEO + performance budget", "Clean handoff"]}
               hue="emerald"
             />
             <HoverLiftCard
+              index={1}
               title="Data & Automation"
               desc="Python pipelines, reporting, and glue code that turns messy workflows into one click."
               items={["Time saved, measured", "Docs you can actually read", "Error handling that matters"]}
               hue="green"
             />
             <HoverLiftCard
+              index={2}
               title="Deploy & Maintain"
               desc="Ship to production, wire domains/SSL, and keep things updated while you focus on the business."
               items={["Vercel / cloud-ready", "Monitoring & fixes", "Monthly care plans"]}
@@ -207,18 +260,21 @@ export default function HomeContent() {
         <SectionMotion id="projects" title="Projects" subtitle="Swap in your real screenshots — even demos count.">
           <div className="grid gap-5 md:grid-cols-3">
             <ProjectCard
+              index={0}
               name="Restaurant landing page"
               result="More calls & inquiries"
               tech="Next.js · Tailwind · Motion"
               delay={0}
             />
             <ProjectCard
+              index={1}
               name="Invoice automation"
               result="Saved 6+ hours weekly"
               tech="Python · CSV/Sheets"
               delay={0.08}
             />
             <ProjectCard
+              index={2}
               name="Sales dashboard"
               result="Faster weekly reviews"
               tech="BI stack · SQL"
@@ -229,14 +285,14 @@ export default function HomeContent() {
 
         <SectionMotion id="about" title="About" subtitle="Trust is built with proof, process, and communication.">
           <motion.div
-            initial={{ opacity: 0, y: 32 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.55, ease: easeOutExpo }}
-            className="relative overflow-hidden rounded-3xl border border-emerald-500/10 bg-gradient-to-br from-emerald-500/[0.06] to-transparent p-8 shadow-[0_0_80px_-40px_rgba(52,211,153,0.22)]"
+            initial={{ opacity: 0, y: 40, scale: 0.98 }}
+            whileInView={{ opacity: 1, y: 0, scale: 1 }}
+            viewport={{ once: true, margin: "-80px", amount: 0.15 }}
+            transition={{ type: "spring", stiffness: 180, damping: 28 }}
+            className="relative overflow-hidden rounded-3xl border border-emerald-500/15 bg-gradient-to-br from-emerald-500/[0.08] to-transparent p-8 shadow-[0_0_100px_-42px_rgba(52,211,153,0.28)]"
           >
-            <div className="pointer-events-none absolute -right-24 -top-24 h-64 w-64 rounded-full bg-emerald-500/20 blur-3xl" />
-            <div className="pointer-events-none absolute -bottom-24 -left-24 h-64 w-64 rounded-full bg-teal-500/15 blur-3xl" />
+            <div className="pointer-events-none absolute -right-24 -top-24 h-64 w-64 rounded-full bg-emerald-500/25 blur-3xl" />
+            <div className="pointer-events-none absolute -bottom-24 -left-24 h-64 w-64 rounded-full bg-teal-500/18 blur-3xl" />
             <p className="relative max-w-3xl text-lg text-zinc-300">
               Hi! We&rsquo;re{" "}
               <span className="font-semibold text-white">{siteConfig.founders.primary}</span> and{" "}
@@ -245,12 +301,34 @@ export default function HomeContent() {
               work, and visualize what matters, with the clarity and footprint of a small team.
             </p>
             <div className="relative mt-8 grid gap-4 md:grid-cols-3">
-              <Mini
-                title="Crystal-clear updates"
-                desc="Weekly notes, realistic timelines, and zero mystery charges."
-              />
-              <Mini title="Quality that lasts" desc="Readable code, sensible architecture, real docs." />
-              <Mini title="Post-launch care" desc="We stick around for fixes, tuning, and iteration." />
+              {(
+                [
+                  {
+                    title: "Crystal-clear updates",
+                    desc: "Weekly notes, realistic timelines, and zero mystery charges.",
+                  },
+                  { title: "Quality that lasts", desc: "Readable code, sensible architecture, real docs." },
+                  {
+                    title: "Post-launch care",
+                    desc: "We stick around for fixes, tuning, and iteration.",
+                  },
+                ] as const
+              ).map((m, i) => (
+                <motion.div
+                  key={m.title}
+                  initial={{ opacity: 0, y: 24 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.35 }}
+                  transition={{
+                    type: "spring",
+                    stiffness: 260,
+                    damping: 26,
+                    delay: 0.12 + i * 0.1,
+                  }}
+                >
+                  <Mini title={m.title} desc={m.desc} />
+                </motion.div>
+              ))}
             </div>
           </motion.div>
         </SectionMotion>
@@ -258,11 +336,11 @@ export default function HomeContent() {
         <SectionMotion id="contact" title="Contact" subtitle="Tell us what you&rsquo;re building. We reply within 24 hours.">
           <div className="grid gap-6 lg:grid-cols-2">
             <motion.div
-              initial={{ opacity: 0, x: -24 }}
+              initial={{ opacity: 0, x: -32 }}
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: "-60px" }}
-              transition={{ duration: 0.55 }}
-              className="rounded-3xl border border-white/[0.08] bg-white/[0.03] p-8 backdrop-blur-sm"
+              viewport={{ once: true, margin: "-60px", amount: 0.2 }}
+              transition={{ type: "spring", stiffness: 200, damping: 28 }}
+              className="rounded-3xl border border-white/[0.09] bg-white/[0.035] p-8 shadow-[0_24px_80px_-50px_rgba(0,0,0,0.75)] backdrop-blur-sm"
             >
               <p className="text-zinc-300">
                 Prefer WhatsApp? The form sends straight to our phone. Prefer email? Drop a line and
@@ -301,18 +379,24 @@ export default function HomeContent() {
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0, x: 24 }}
+              initial={{ opacity: 0, x: 32 }}
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: "-60px" }}
-              transition={{ duration: 0.55 }}
-              className="rounded-3xl border border-white/[0.08] bg-white/[0.03] p-8 backdrop-blur-sm"
+              viewport={{ once: true, margin: "-60px", amount: 0.2 }}
+              transition={{ type: "spring", stiffness: 200, damping: 28, delay: 0.06 }}
+              className="rounded-3xl border border-white/[0.09] bg-white/[0.035] p-8 shadow-[0_24px_80px_-50px_rgba(0,0,0,0.75)] backdrop-blur-sm"
             >
               <ContactForm />
             </motion.div>
           </div>
         </SectionMotion>
 
-        <footer className="mx-auto max-w-6xl border-t border-white/[0.06] px-6 py-12 text-sm text-zinc-500">
+        <motion.footer
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.55, ease: easeOutExpo }}
+          className="mx-auto max-w-6xl border-t border-white/[0.08] px-6 py-12 text-sm text-zinc-500"
+        >
           <div className="flex flex-col items-start justify-between gap-4 md:flex-row md:items-center">
             <p>
               © {new Date().getFullYear()} {siteConfig.name}. {siteConfig.tagline} — built with Next.js
@@ -327,9 +411,10 @@ export default function HomeContent() {
               </a>
             </div>
           </div>
-        </footer>
+        </motion.footer>
       </main>
-    </div>
+      </div>
+    </MotionConfig>
   );
 }
 
@@ -397,10 +482,10 @@ function FloatingPanel() {
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.9, ease: easeOutExpo }}
-        className="relative overflow-hidden rounded-[28px] border border-white/[0.1] bg-gradient-to-b from-white/[0.08] to-transparent p-px shadow-[0_0_0_1px_rgba(255,255,255,0.04),0_32px_80px_-24px_rgba(0,0,0,0.8)]"
+        transition={{ duration: 0.95, ease: easeOutExpo }}
+        className="gb-card-shine group/panel relative overflow-hidden rounded-[28px] border border-white/[0.12] bg-gradient-to-b from-white/[0.1] to-transparent p-px shadow-[0_0_0_1px_rgba(255,255,255,0.06),0_36px_100px_-32px_rgba(52,211,153,0.1),0_32px_80px_-24px_rgba(0,0,0,0.82)]"
       >
-        <div className="rounded-[27px] bg-[#060d0b]/92 p-6 backdrop-blur-xl">
+        <div className="relative z-[2] rounded-[27px] bg-[#060d0b]/92 p-6 backdrop-blur-xl">
           <div className="flex items-center justify-between">
             <p className="text-xs font-medium uppercase tracking-widest text-zinc-500">Pipeline</p>
             <span className="rounded-full bg-emerald-500/15 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wide text-emerald-300">
@@ -448,9 +533,14 @@ function FloatingPanel() {
               return (
                 <motion.li
                   key={row.t}
-                  initial={{ opacity: 0, x: 16 }}
+                  initial={{ opacity: 0, x: 18 }}
                   animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.35 + i * 0.12, duration: 0.45 }}
+                  transition={{
+                    delay: 0.32 + i * 0.11,
+                    type: "spring",
+                    stiffness: 260,
+                    damping: 24,
+                  }}
                 >
                   {row.href ? (
                     <a
@@ -517,20 +607,39 @@ function SectionMotion({
   subtitle: string;
   children: ReactNode;
 }) {
+  const eyebrow = SECTION_LABEL[id] ?? "GreenChronix";
+
   return (
     <section
       id={id}
-      className="relative mx-auto max-w-6xl scroll-mt-28 px-6 py-20 md:scroll-mt-32"
+      className="relative mx-auto max-w-6xl scroll-mt-28 px-6 py-24 md:scroll-mt-32 md:py-28"
     >
       <motion.div
-        initial={{ opacity: 0, y: 32 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-100px" }}
-        transition={{ duration: 0.55, ease: easeOutExpo }}
-        className="mb-10 max-w-2xl"
+        variants={sectionHeadContainer}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, margin: "-70px", amount: 0.2 }}
+        className="mb-12 max-w-2xl md:mb-14"
       >
-        <h2 className="text-3xl font-semibold tracking-tight md:text-4xl">{title}</h2>
-        <p className="mt-3 text-lg text-zinc-400">{subtitle}</p>
+        <motion.div variants={sectionEyebrow} className="flex items-center gap-3">
+          <span className="relative flex h-2.5 w-2.5 shrink-0">
+            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#34d399]/55 opacity-50" />
+            <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-[#34d399] shadow-[0_0_18px_rgba(52,211,153,0.75)]" />
+          </span>
+          <span className="text-[11px] font-semibold uppercase tracking-[0.28em] text-emerald-400/90">
+            {eyebrow}
+          </span>
+          <motion.span
+            variants={sectionLine}
+            className="h-px flex-1 origin-left max-w-[min(200px,42vw)] bg-gradient-to-r from-emerald-400/55 via-[#34d399]/35 to-transparent"
+          />
+        </motion.div>
+        <motion.h2 variants={sectionTitle} className="mt-5 text-3xl font-semibold tracking-tight md:text-4xl">
+          {title}
+        </motion.h2>
+        <motion.p variants={sectionSubtitle} className="mt-3 text-lg text-zinc-400">
+          {subtitle}
+        </motion.p>
       </motion.div>
       {children}
     </section>
@@ -571,11 +680,13 @@ function HoverLiftCard({
   desc,
   items,
   hue,
+  index = 0,
 }: {
   title: string;
   desc: string;
   items: string[];
   hue: "emerald" | "green" | "teal";
+  index?: number;
 }) {
   const finePointerHover = useFinePointerHover();
   const ring =
@@ -593,29 +704,53 @@ function HoverLiftCard({
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 36 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-40px" }}
-      transition={{ duration: 0.5, ease: easeOutExpo }}
-      whileHover={finePointerHover ? { y: -6 } : undefined}
-      className={`group relative overflow-hidden rounded-3xl border border-white/[0.08] bg-white/[0.03] p-6 shadow-[0_24px_80px_-48px_rgba(0,0,0,0.9)] transition-shadow duration-300 hover:border-white/[0.14] hover:shadow-2xl ${ring}`}
+      initial={{ opacity: 0, y: 52, scale: 0.93 }}
+      whileInView={{ opacity: 1, y: 0, scale: 1 }}
+      viewport={{ once: true, margin: "-50px", amount: 0.12 }}
+      transition={{
+        type: "spring",
+        stiffness: 200,
+        damping: 26,
+        mass: 0.88,
+        delay: index * 0.12,
+      }}
+      whileHover={
+        finePointerHover
+          ? {
+              y: -8,
+              transition: { type: "spring", stiffness: 420, damping: 24 },
+            }
+          : undefined
+      }
+      className={`group gb-card-shine relative overflow-hidden rounded-3xl border border-white/[0.08] bg-white/[0.035] p-6 shadow-[0_24px_80px_-48px_rgba(0,0,0,0.9)] transition-shadow duration-500 hover:border-emerald-400/20 ${ring}`}
     >
       <div
-        className={`pointer-events-none absolute -right-12 -top-12 h-40 w-40 rounded-full bg-gradient-to-br ${glow} to-transparent opacity-0 blur-2xl transition-opacity duration-300 group-hover:opacity-100`}
+        className={`pointer-events-none absolute -right-12 -top-12 h-44 w-44 rounded-full bg-gradient-to-br ${glow} to-transparent opacity-0 blur-2xl transition-opacity duration-500 group-hover:opacity-100`}
       />
-      <div className="relative">
-        <h3 className="text-lg font-semibold">{title}</h3>
+      <div className="relative z-[2]">
+        <h3 className="text-lg font-semibold tracking-tight">{title}</h3>
         <p className="mt-3 text-sm leading-relaxed text-zinc-400">{desc}</p>
         <ul className="mt-5 space-y-2.5 text-sm text-zinc-300">
-          {items.map((it) => (
-            <li key={it} className="flex items-start gap-2">
+          {items.map((it, i) => (
+            <motion.li
+              key={it}
+              initial={{ opacity: 0, x: -10 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, amount: 0.9 }}
+              transition={{
+                delay: index * 0.12 + 0.22 + i * 0.06,
+                duration: 0.45,
+                ease: easeOutExpo,
+              }}
+              className="flex items-start gap-2"
+            >
               <motion.span
                 className="mt-1.5 inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-gradient-to-r from-[#34d399] to-emerald-200/80"
                 initial={false}
-                whileHover={finePointerHover ? { scale: 1.4 } : undefined}
+                whileHover={finePointerHover ? { scale: 1.45 } : undefined}
               />
               <span>{it}</span>
-            </li>
+            </motion.li>
           ))}
         </ul>
       </div>
@@ -628,26 +763,42 @@ function ProjectCard({
   result,
   tech,
   delay,
+  index = 0,
 }: {
   name: string;
   result: string;
   tech: string;
   delay: number;
+  index?: number;
 }) {
+  const finePointerHover = useFinePointerHover();
   return (
     <motion.div
-      initial={{ opacity: 0, y: 32 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ delay, duration: 0.5, ease: easeOutExpo }}
-      whileHover={{ y: -4 }}
-      className="group relative overflow-hidden rounded-3xl border border-white/[0.08] bg-gradient-to-b from-white/[0.06] to-transparent p-6"
+      initial={{ opacity: 0, y: 48, scale: 0.93 }}
+      whileInView={{ opacity: 1, y: 0, scale: 1 }}
+      viewport={{ once: true, amount: 0.18 }}
+      transition={{
+        type: "spring",
+        stiffness: 200,
+        damping: 27,
+        mass: 0.9,
+        delay: delay + index * 0.03,
+      }}
+      whileHover={
+        finePointerHover
+          ? {
+              y: -6,
+              transition: { type: "spring", stiffness: 380, damping: 22 },
+            }
+          : undefined
+      }
+      className="group gb-card-shine relative overflow-hidden rounded-3xl border border-white/[0.09] bg-gradient-to-b from-white/[0.08] to-transparent p-6 shadow-[0_20px_70px_-50px_rgba(52,211,153,0.15)] transition-shadow duration-500 hover:border-emerald-400/25 hover:shadow-[0_28px_90px_-48px_rgba(52,211,153,0.18)]"
     >
-      <div className="absolute inset-0 bg-[radial-gradient(800px_200px_at_50%_0%,rgba(255,255,255,0.06),transparent)] opacity-0 transition-opacity group-hover:opacity-100" />
-      <div className="relative">
-        <p className="text-base font-semibold">{name}</p>
+      <div className="absolute inset-0 bg-[radial-gradient(800px_220px_at_50%_-10%,rgba(255,255,255,0.08),transparent)] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+      <div className="relative z-[2]">
+        <p className="text-base font-semibold tracking-tight">{name}</p>
         <p className="mt-2 text-sm text-zinc-400">{result}</p>
-        <div className="mt-5 inline-flex rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-[11px] text-zinc-400">
+        <div className="mt-5 inline-flex rounded-full border border-white/10 bg-white/[0.05] px-3 py-1 text-[11px] text-zinc-400 transition-colors duration-300 group-hover:border-emerald-500/25 group-hover:text-zinc-300">
           {tech}
         </div>
       </div>
@@ -656,10 +807,18 @@ function ProjectCard({
 }
 
 function Mini({ title, desc }: { title: string; desc: string }) {
+  const finePointerHover = useFinePointerHover();
   return (
     <motion.div
-      whileHover={{ y: -2 }}
-      className="rounded-2xl border border-white/[0.08] bg-black/25 p-5 transition-colors hover:border-white/[0.14]"
+      whileHover={
+        finePointerHover
+          ? {
+              y: -3,
+              transition: { type: "spring", stiffness: 400, damping: 24 },
+            }
+          : undefined
+      }
+      className="rounded-2xl border border-white/[0.08] bg-black/25 p-5 transition-colors duration-300 hover:border-emerald-400/25 hover:bg-white/[0.03]"
     >
       <p className="text-sm font-semibold text-white">{title}</p>
       <p className="mt-2 text-sm text-zinc-400">{desc}</p>
@@ -724,10 +883,19 @@ function Stat({
   value: string;
   accent: string;
 }) {
+  const finePointerHover = useFinePointerHover();
   return (
     <motion.div
-      whileHover={{ y: -3 }}
-      className="relative overflow-hidden rounded-2xl border border-white/[0.08] bg-white/[0.03] p-4 text-center"
+      variants={fadeUp}
+      whileHover={
+        finePointerHover
+          ? {
+              y: -4,
+              transition: { type: "spring", stiffness: 420, damping: 22 },
+            }
+          : undefined
+      }
+      className="relative overflow-hidden rounded-2xl border border-white/[0.08] bg-white/[0.04] p-4 text-center shadow-[0_12px_40px_-28px_rgba(0,0,0,0.6)] transition-shadow duration-300 hover:border-emerald-500/20"
     >
       <div className={`pointer-events-none absolute inset-x-0 -top-px h-px bg-gradient-to-r ${accent} via-transparent to-transparent`} />
       <p className="text-[11px] uppercase tracking-wider text-zinc-500">{label}</p>
@@ -745,6 +913,7 @@ function MagneticButton({
   children: ReactNode;
   primary?: boolean;
 }) {
+  const finePointerHover = useFinePointerHover();
   const base =
     "group/btn relative inline-flex items-center justify-center overflow-hidden rounded-2xl px-6 py-3.5 text-sm font-semibold transition-colors";
   const cls = primary
@@ -752,7 +921,12 @@ function MagneticButton({
     : `${base} border border-emerald-500/20 bg-white/[0.04] text-white hover:border-[#34d399]/35 hover:bg-emerald-500/[0.06]`;
 
   return (
-    <motion.a href={href} className={cls} whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
+    <motion.a
+      href={href}
+      className={cls}
+      whileHover={finePointerHover ? { scale: 1.04, transition: springReveal } : undefined}
+      whileTap={{ scale: 0.97 }}
+    >
       {primary && (
         <span className="absolute inset-0 bg-gradient-to-r from-emerald-100/80 via-white to-teal-100/80 opacity-0 transition-opacity duration-300 group-hover/btn:opacity-100" />
       )}
@@ -784,6 +958,7 @@ function ContactForm() {
     "idle"
   );
   const [error, setError] = useState<string | null>(null);
+  const finePointerHover = useFinePointerHover();
 
   // Read the ?tier=... URL param once on mount and use it as the initial
   // textarea value. Lazy initializer keeps this out of useEffect.
@@ -993,7 +1168,9 @@ function ContactForm() {
           type="submit"
           disabled={isSending}
           className="group relative mt-2 overflow-hidden rounded-2xl bg-[#34d399] px-5 py-3.5 text-sm font-semibold text-zinc-950 disabled:opacity-70"
-          whileHover={!isSending ? { scale: 1.02 } : undefined}
+          whileHover={
+            !isSending && finePointerHover ? { scale: 1.02, transition: springReveal } : undefined
+          }
           whileTap={!isSending ? { scale: 0.98 } : undefined}
         >
           <span className="relative z-10 flex items-center justify-center gap-2">
