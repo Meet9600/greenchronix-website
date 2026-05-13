@@ -35,6 +35,7 @@ const wordReveal = {
 
 export default function HomeContent() {
   const heroRef = useRef<HTMLElement>(null);
+  const heroParallax = useHeroParallax();
   const { scrollYProgress } = useScroll({
     target: heroRef,
     offset: ["start start", "end start"],
@@ -99,7 +100,9 @@ export default function HomeContent() {
       <main className="relative z-10 pt-28">
         <motion.section
           ref={heroRef}
-          style={{ y: heroY, opacity: heroOpacity, scale: scaleSm }}
+          style={
+            heroParallax ? { y: heroY, opacity: heroOpacity, scale: scaleSm } : undefined
+          }
           className="mx-auto max-w-6xl px-6 pb-16 pt-6"
         >
           <motion.div
@@ -377,6 +380,7 @@ function GrainOverlay() {
 }
 
 function FloatingPanel() {
+  const finePointerHover = useFinePointerHover();
   return (
     <div className="relative">
       <motion.div
@@ -469,7 +473,7 @@ function FloatingPanel() {
 
           <motion.div
             className="mt-6 overflow-hidden rounded-2xl border border-emerald-500/15 bg-gradient-to-r from-emerald-500/12 via-[#34d399]/10 to-teal-600/12 p-5"
-            whileHover={{ scale: 1.01 }}
+            whileHover={finePointerHover ? { scale: 1.01 } : undefined}
             transition={{ type: "spring", stiffness: 260, damping: 22 }}
           >
             <p className="text-sm font-semibold text-white">Ready when you are</p>
@@ -482,7 +486,7 @@ function FloatingPanel() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 rounded-full bg-[#34d399] px-4 py-2 text-xs font-semibold text-zinc-950"
-                whileHover={{ scale: 1.04 }}
+                whileHover={finePointerHover ? { scale: 1.04 } : undefined}
                 whileTap={{ scale: 0.98 }}
               >
                 Book a call <span aria-hidden>→</span>
@@ -490,7 +494,7 @@ function FloatingPanel() {
               <motion.a
                 href="#contact"
                 className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#6ee7b7] hover:text-[#34d399]"
-                whileHover={{ x: 4 }}
+                whileHover={finePointerHover ? { x: 4 } : undefined}
               >
                 Or send a message <span aria-hidden>→</span>
               </motion.a>
@@ -514,7 +518,10 @@ function SectionMotion({
   children: ReactNode;
 }) {
   return (
-    <section id={id} className="relative mx-auto max-w-6xl px-6 py-20">
+    <section
+      id={id}
+      className="relative mx-auto max-w-6xl scroll-mt-28 px-6 py-20 md:scroll-mt-32"
+    >
       <motion.div
         initial={{ opacity: 0, y: 32 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -528,6 +535,22 @@ function SectionMotion({
       {children}
     </section>
   );
+}
+
+/**
+ * Scroll-linked hero transforms (parallax) break touch scrolling on many phones when
+ * leaving the hero for #services. Only enable on desktop-sized viewports with real hover.
+ */
+function useHeroParallax() {
+  const [enabled, setEnabled] = useState(false);
+  useEffect(() => {
+    const mq = window.matchMedia("(min-width: 768px) and (hover: hover) and (pointer: fine)");
+    const run = () => setEnabled(mq.matches);
+    run();
+    mq.addEventListener("change", run);
+    return () => mq.removeEventListener("change", run);
+  }, []);
+  return enabled;
 }
 
 /** True when the device has real hover (mouse/trackpad), not touch-first — avoids scroll jank on phones. */
@@ -575,7 +598,7 @@ function HoverLiftCard({
       viewport={{ once: true, margin: "-40px" }}
       transition={{ duration: 0.5, ease: easeOutExpo }}
       whileHover={finePointerHover ? { y: -6 } : undefined}
-      className={`group relative touch-pan-y overflow-hidden rounded-3xl border border-white/[0.08] bg-white/[0.03] p-6 shadow-[0_24px_80px_-48px_rgba(0,0,0,0.9)] transition-shadow duration-300 hover:border-white/[0.14] hover:shadow-2xl ${ring}`}
+      className={`group relative overflow-hidden rounded-3xl border border-white/[0.08] bg-white/[0.03] p-6 shadow-[0_24px_80px_-48px_rgba(0,0,0,0.9)] transition-shadow duration-300 hover:border-white/[0.14] hover:shadow-2xl ${ring}`}
     >
       <div
         className={`pointer-events-none absolute -right-12 -top-12 h-40 w-40 rounded-full bg-gradient-to-br ${glow} to-transparent opacity-0 blur-2xl transition-opacity duration-300 group-hover:opacity-100`}
@@ -589,7 +612,7 @@ function HoverLiftCard({
               <motion.span
                 className="mt-1.5 inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-gradient-to-r from-[#34d399] to-emerald-200/80"
                 initial={false}
-                whileHover={{ scale: 1.4 }}
+                whileHover={finePointerHover ? { scale: 1.4 } : undefined}
               />
               <span>{it}</span>
             </li>
