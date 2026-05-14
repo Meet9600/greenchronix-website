@@ -194,14 +194,14 @@ export default function HomeContent() {
                 </span>
                 <span className="bg-gradient-to-br from-white via-zinc-100 to-zinc-500 bg-clip-text text-transparent">
                   {" "}
-                  — lean IT that ships fast.
+                  with lean IT that ships fast.
                 </span>
               </motion.h1>
 
               <motion.p variants={fadeUp} className="mt-6 max-w-xl text-pretty text-lg text-zinc-400">
-                {siteConfig.name} builds websites, apps, automation, and data tools with clean
-                code, honest timelines, and long-term care &mdash; so your stack stays efficient,
-                not bloated.
+                {siteConfig.name} builds websites, apps, AI agents, blockchain products,
+                automation, and data tools with clean code, honest timelines, and long-term care
+                so your stack stays efficient, not bloated.
               </motion.p>
 
               <motion.div variants={fadeUp} className="mt-9 flex flex-wrap gap-3">
@@ -215,7 +215,7 @@ export default function HomeContent() {
                 variants={fadeUp}
                 className="mt-12 grid grid-cols-3 gap-3 sm:gap-4"
               >
-                <Stat label="Delivery" value="7–14 days" accent="from-emerald-400/40" />
+                <Stat label="Delivery" value="15–35 days" accent="from-emerald-400/40" />
                 <Stat label="Support" value="30 days" accent="from-[#34d399]/35" />
                 <Stat label="Stack" value="Next.js" accent="from-teal-400/35" />
               </motion.div>
@@ -230,34 +230,55 @@ export default function HomeContent() {
         <SectionMotion
           id="services"
           title="Services"
-          subtitle="Focused packages. Clear outcomes. Less waste — more value per byte."
+          subtitle="Focused capabilities. Clear outcomes. Less waste, more value per byte."
         >
           <div className="grid gap-5 md:grid-cols-3">
             <HoverLiftCard
               index={0}
               title="Websites & Web Apps"
-              desc="Landing pages, portfolios, SaaS shells, internal tools — fast, responsive, and built to scale."
+              desc="Landing pages, portfolios, SaaS shells, and internal tools that are fast, responsive, and built to scale."
               items={["Responsive UI & motion polish", "SEO + performance budget", "Clean handoff"]}
               hue="emerald"
             />
             <HoverLiftCard
               index={1}
-              title="Data & Automation"
-              desc="Python pipelines, reporting, and glue code that turns messy workflows into one click."
-              items={["Time saved, measured", "Docs you can actually read", "Error handling that matters"]}
+              title="AI Agents & Chatbots"
+              desc="Custom agents that answer questions, qualify leads, search knowledge bases, and automate routine work."
+              items={["Website and WhatsApp bots", "OpenAI / RAG workflows", "Human handoff paths"]}
               hue="green"
             />
             <HoverLiftCard
               index={2}
+              title="Blockchain & Web3"
+              desc="Smart contracts, wallet flows, token-gated experiences, and Web3 dashboards built with practical security in mind."
+              items={["Smart contract MVPs", "Wallet integrations", "On-chain data views"]}
+              hue="teal"
+            />
+            <HoverLiftCard
+              index={3}
+              title="Data & Automation"
+              desc="Python pipelines, reporting, and glue code that turns messy workflows into one click."
+              items={["Time saved, measured", "Docs you can actually read", "Error handling that matters"]}
+              hue="emerald"
+            />
+            <HoverLiftCard
+              index={4}
+              title="Cloud, APIs & DevOps"
+              desc="Production deployments, third-party integrations, serverless APIs, and monitoring for stable day-to-day operations."
+              items={["Vercel / cloud-ready", "Stripe, CRM, Slack, Sheets", "Monitoring & fixes"]}
+              hue="green"
+            />
+            <HoverLiftCard
+              index={5}
               title="Deploy & Maintain"
               desc="Ship to production, wire domains/SSL, and keep things updated while you focus on the business."
-              items={["Vercel / cloud-ready", "Monitoring & fixes", "Monthly care plans"]}
+              items={["Security updates", "Performance tuning", "Monthly care plans"]}
               hue="teal"
             />
           </div>
         </SectionMotion>
 
-        <SectionMotion id="projects" title="Projects" subtitle="Swap in your real screenshots — even demos count.">
+        <SectionMotion id="projects" title="Projects" subtitle="Selected builds and practical outcomes.">
           <div className="grid gap-5 md:grid-cols-3">
             <ProjectCard
               index={0}
@@ -297,8 +318,9 @@ export default function HomeContent() {
               Hi! We&rsquo;re{" "}
               <span className="font-semibold text-white">{siteConfig.founders.primary}</span> and{" "}
               <span className="font-semibold text-white">{siteConfig.founders.secondary}</span>{" "}
-              &mdash; {siteConfig.name}. We ship modern web experiences, automate repetitive
-              work, and visualize what matters, with the clarity and footprint of a small team.
+              from {siteConfig.name}. We ship modern web experiences, AI workflows,
+              blockchain features, automation, and dashboards, with the clarity and footprint of a
+              small team.
             </p>
             <div className="relative mt-8 grid gap-4 md:grid-cols-3">
               {(
@@ -399,7 +421,7 @@ export default function HomeContent() {
         >
           <div className="flex flex-col items-start justify-between gap-4 md:flex-row md:items-center">
             <p>
-              © {new Date().getFullYear()} {siteConfig.name}. {siteConfig.tagline} — built with Next.js
+              © {new Date().getFullYear()} {siteConfig.name}. {siteConfig.tagline} Built with Next.js
               & motion.
             </p>
             <div className="flex gap-6 text-xs">
@@ -496,7 +518,7 @@ function FloatingPanel() {
             {[
               {
                 t: "Discovery call",
-                s: "15 min — goals, scope, budget band",
+                s: "15 min: goals, scope, budget band",
                 icon: "◆",
                 color: "text-[#6ee7b7]",
                 href: getBookingUrl(),
@@ -568,7 +590,7 @@ function FloatingPanel() {
           >
             <p className="text-sm font-semibold text-white">Ready when you are</p>
             <p className="mt-1 text-sm text-zinc-400">
-              Tell us what success looks like &mdash; we&rsquo;ll mirror it in the roadmap.
+              Tell us what success looks like. We&rsquo;ll mirror it in the roadmap.
             </p>
             <div className="mt-4 flex flex-wrap items-center gap-4">
               <motion.a
@@ -1003,7 +1025,7 @@ function ContactForm() {
     }
 
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      setError("That email address looks off — mind double-checking?");
+      setError("That email address looks off. Mind double-checking?");
       return;
     }
 
@@ -1072,7 +1094,7 @@ function ContactForm() {
         <div>
           <p className="text-lg font-semibold text-white">Message sent</p>
           <p className="mt-2 text-sm text-zinc-400">
-            Thanks &mdash; we&rsquo;ll reply within 24 hours. Need something faster?{" "}
+            Thanks. We&rsquo;ll reply within 24 hours. Need something faster?{" "}
             <a
               href={buildWhatsAppUrl("Hi GreenChronix! Just sent the form, wanted to follow up.")}
               target="_blank"

@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: `${siteConfig.name} — ${siteConfig.tagline}`,
+    default: `${siteConfig.name} | ${siteConfig.tagline}`,
     template: `%s · ${siteConfig.name}`,
   },
   description: siteConfig.description,
@@ -24,6 +24,11 @@ export const metadata: Metadata = {
     "web development",
     "Next.js agency",
     "Python automation",
+    "AI agents",
+    "chatbot development",
+    "blockchain development",
+    "smart contracts",
+    "cloud DevOps",
     "data dashboards",
     "Gandhinagar developers",
     "lean IT",
@@ -35,13 +40,13 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: siteConfig.url,
-    title: `${siteConfig.name} — ${siteConfig.tagline}`,
+    title: `${siteConfig.name} | ${siteConfig.tagline}`,
     description: siteConfig.description,
     siteName: siteConfig.name,
   },
   twitter: {
     card: "summary_large_image",
-    title: `${siteConfig.name} — ${siteConfig.tagline}`,
+    title: `${siteConfig.name} | ${siteConfig.tagline}`,
     description: siteConfig.description,
   },
   robots: {

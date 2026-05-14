@@ -100,7 +100,7 @@ export default async function BlogPostPage({
         <footer className="mt-16 rounded-3xl border border-emerald-500/10 bg-gradient-to-br from-emerald-500/[0.06] to-transparent p-8">
           <p className="text-lg font-semibold text-white">Like how we think? Let&rsquo;s build.</p>
           <p className="mt-2 text-zinc-400">
-            Tell us about your project — we reply within 24 hours.
+            Tell us about your project. We reply within 24 hours.
           </p>
           <Link
             href="/#contact"

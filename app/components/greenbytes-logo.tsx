@@ -45,7 +45,7 @@ export function BrandLogo({
   return (
     <Image
       src={siteConfig.logo}
-      alt={`${siteConfig.name} — ${siteConfig.tagline}`}
+      alt={`${siteConfig.name} | ${siteConfig.tagline}`}
       width={1536}
       height={1024}
       priority={priority}

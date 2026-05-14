@@ -27,7 +27,7 @@ export const posts: BlogPost[] = [
 
 A landing page does not need a headless CMS, three analytics scripts, a 12-step build pipeline, and a 400 KB JavaScript payload. It needs to load fast, communicate clearly, and convert visitors. That is it.
 
-At GreenChronix we default to a lean baseline — Next.js, Tailwind, a single deploy target — and only add complexity when a client's actual workflow demands it. The result is fewer bugs, faster shipping, and lower monthly bills.
+At GreenChronix we default to a lean baseline: Next.js, Tailwind, and a single deploy target. We only add complexity when a client's actual workflow demands it. The result is fewer bugs, faster shipping, and lower monthly bills.
 
 The trade-off people fear (less flexibility) almost never materializes. What you lose in theoretical extensibility you gain in operational simplicity, and most projects never grow to need the missing features anyway.
 
@@ -45,7 +45,7 @@ Lean is not about doing less. It is about not doing the wrong things.`,
 
 Build time: one week. Time saved: roughly 16 hours per month. Payback period: under three weeks.
 
-The interesting part is not the automation itself — these scripts are not hard to write. The interesting part is that the team had been doing the manual work for two years before considering automation, because no single Monday felt expensive enough to justify the project.
+The interesting part is not the automation itself. These scripts are not hard to write. The interesting part is that the team had been doing the manual work for two years before considering automation, because no single Monday felt expensive enough to justify the project.
 
 That is the trap. Repetitive work compounds quietly. By the time someone notices the cost, hundreds of hours are gone.
 

@@ -76,7 +76,7 @@ export function SiteFooter() {
     <footer className="relative z-10 mx-auto max-w-6xl border-t border-white/[0.06] px-6 py-12 text-sm text-zinc-500">
       <div className="flex flex-col items-start justify-between gap-4 md:flex-row md:items-center">
         <p>
-          © {new Date().getFullYear()} {siteConfig.name}. {siteConfig.tagline} — built with
+          © {new Date().getFullYear()} {siteConfig.name}. {siteConfig.tagline} Built with
           Next.js & motion.
         </p>
         <div className="flex flex-wrap gap-6 text-xs">

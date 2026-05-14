@@ -103,7 +103,7 @@ export async function POST(request: Request) {
   }
 
   // Build a clean text + HTML email
-  const subject = `New lead from ${name} — ${siteConfig.name}`;
+  const subject = `New lead from ${name} | ${siteConfig.name}`;
   const textBody = [
     `New contact form submission:`,
     ``,
@@ -114,7 +114,7 @@ export async function POST(request: Request) {
     `Details:`,
     details,
     ``,
-    `—`,
+    `---`,
     `Sent from ${siteConfig.url}`,
   ]
     .filter(Boolean)

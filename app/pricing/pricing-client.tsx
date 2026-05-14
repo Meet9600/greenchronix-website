@@ -20,9 +20,9 @@ const tiers: Tier[] = [
   {
     name: "Starter",
     slug: "starter",
-    tagline: "Land your idea online — fast.",
+    tagline: "Land your idea online, fast.",
     ideal: "Solo founders, small businesses, portfolio sites.",
-    timeline: "7–10 days",
+    timeline: "15–35 days",
     features: [
       "Single-page or up-to-3-page site",
       "Responsive design + motion polish",
@@ -39,7 +39,7 @@ const tiers: Tier[] = [
     slug: "growth",
     tagline: "For teams that need real product work.",
     ideal: "Startups, SaaS shells, internal tools, CMS-driven sites.",
-    timeline: "2–4 weeks",
+    timeline: "15–35 days",
     highlighted: true,
     features: [
       "Multi-page site or web app (up to 8 routes)",
@@ -57,12 +57,14 @@ const tiers: Tier[] = [
     name: "Custom",
     slug: "custom",
     tagline: "Bespoke builds & ongoing partnerships.",
-    ideal: "Larger products, automation suites, monthly care plans.",
-    timeline: "Scoped to fit",
+    ideal: "AI agents, blockchain builds, automation suites, monthly care plans.",
+    timeline: "15–35 days",
     features: [
       "Custom scope, milestones, and timeline",
+      "AI agents, chatbots, and knowledge-base search",
+      "Blockchain MVPs, wallet flows, and Web3 dashboards",
       "Python data pipelines + dashboards",
-      "Integrations: Stripe, Slack, Sheets, OpenAI",
+      "Integrations: Stripe, Slack, Sheets, OpenAI, CRMs",
       "Dedicated engineer hours per week",
       "Monitoring, error tracking, weekly reports",
       "Roadmap planning + iteration cycles",
@@ -76,7 +78,7 @@ const tiers: Tier[] = [
 const faqs = [
   {
     q: "Why don't you list fixed prices?",
-    a: "Because honest pricing depends on scope. A 'simple landing page' for one client means three pages with a contact form; for another, it means a multi-language site with bookings and Stripe. We give a fixed quote within 24 hours of a quick call — no surprises after.",
+    a: "Because honest pricing depends on scope. A 'simple landing page' for one client means three pages with a contact form; for another, it means a multi-language site with bookings and Stripe. We give a fixed quote within 24 hours of a quick call, with no surprises after.",
   },
   {
     q: "How do payments work?",
@@ -88,7 +90,7 @@ const faqs = [
   },
   {
     q: "Do you work with non-Indian clients?",
-    a: "Yes — we're remote-first. Most of our communication is async (email, Slack, Linear), with weekly calls when needed. We invoice in INR, USD, or EUR.",
+    a: "Yes. We're remote-first. Most of our communication is async (email, Slack, Linear), with weekly calls when needed. We invoice in INR, USD, or EUR.",
   },
 ];
 
@@ -115,7 +117,7 @@ export function PricingClient() {
           </h1>
           <p className="mt-6 max-w-2xl text-lg text-zinc-400">
             Three tiers to start the conversation. We tailor the final scope after a 15-minute
-            discovery call — so what you pay matches what you actually need.
+            discovery call, so what you pay matches what you actually need.
           </p>
         </motion.div>
       </section>

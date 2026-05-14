@@ -28,7 +28,7 @@ export default function BlogIndexPage() {
           </span>
         </h1>
         <p className="mt-6 max-w-2xl text-lg text-zinc-400">
-          Lessons from real client projects — what worked, what didn&rsquo;t, and what we&rsquo;d do
+          Lessons from real client projects, what worked, what didn&rsquo;t, and what we&rsquo;d do
           differently. No clickbait, no fluff.
         </p>
       </section>

@@ -5,7 +5,7 @@ import { PricingClient } from "./pricing-client";
 
 export const metadata: Metadata = {
   title: "Pricing",
-  description: `Transparent packages from ${siteConfig.name}. Starter, Growth, and Custom tiers — clear scope, fair timelines, real outcomes.`,
+  description: `Transparent packages from ${siteConfig.name}. Starter, Growth, and Custom tiers with clear scope, fair timelines, and real outcomes.`,
   alternates: { canonical: "/pricing" },
 };
 
