@@ -1,8 +1,8 @@
 "use client";
 
-import { motion, MotionConfig, useScroll, useSpring, useTransform } from "framer-motion";
+import { motion, MotionConfig } from "framer-motion";
 import Link from "next/link";
-import { useEffect, useRef, useState, type FormEvent, type ReactNode } from "react";
+import { useEffect, useState, type FormEvent, type ReactNode } from "react";
 import { GreenBytesLogo, GreenBytesMark } from "./components/greenbytes-logo";
 import { buildWhatsAppUrl, getBookingUrl, siteConfig } from "./lib/site";
 
@@ -83,19 +83,6 @@ const SECTION_LABEL: Record<string, string> = {
 };
 
 export default function HomeContent() {
-  const heroRef = useRef<HTMLElement>(null);
-  const heroParallax = useHeroParallax();
-  const { scrollYProgress } = useScroll({
-    target: heroRef,
-    offset: ["start start", "end start"],
-  });
-  const heroY = useTransform(scrollYProgress, [0, 1], ["0%", "18%"]);
-  const heroOpacity = useTransform(scrollYProgress, [0, 0.75], [1, 0.25]);
-  const scaleSm = useSpring(useTransform(scrollYProgress, [0, 1], [1, 0.98]), {
-    stiffness: 120,
-    damping: 28,
-  });
-
   return (
     <MotionConfig reducedMotion="user">
       <div className="relative min-h-screen overflow-x-hidden bg-[#040806] text-zinc-50">
@@ -110,7 +97,7 @@ export default function HomeContent() {
       >
         <nav className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-6 py-3">
           <motion.a
-            href="#"
+            href="/"
             className="min-w-0 shrink"
             whileHover={{ scale: 1.01 }}
             transition={{ type: "spring", stiffness: 400, damping: 22 }}
@@ -149,10 +136,6 @@ export default function HomeContent() {
 
       <main className="relative z-10 pt-28">
         <motion.section
-          ref={heroRef}
-          style={
-            heroParallax ? { y: heroY, opacity: heroOpacity, scale: scaleSm } : undefined
-          }
           className="mx-auto max-w-6xl px-6 pb-16 pt-6"
         >
           <motion.div
@@ -173,7 +156,7 @@ export default function HomeContent() {
               </motion.div>
 
               <motion.div variants={fadeUp} className="mt-6 lg:hidden">
-                <GreenBytesLogo priority className="h-12 w-auto max-w-[240px] sm:h-14" />
+                <GreenBytesLogo priority className="h-16 w-[240px] sm:w-[300px]" />
               </motion.div>
 
               <motion.h1
@@ -656,7 +639,7 @@ function SectionMotion({
   return (
     <section
       id={id}
-      className="relative mx-auto max-w-6xl scroll-mt-28 px-6 py-24 md:scroll-mt-32 md:py-28"
+      className="relative mx-auto max-w-6xl scroll-mt-4 px-6 py-24 md:scroll-mt-6 md:py-28"
     >
       <motion.div
         variants={sectionHeadContainer}
@@ -688,22 +671,6 @@ function SectionMotion({
       {children}
     </section>
   );
-}
-
-/**
- * Scroll-linked hero transforms (parallax) break touch scrolling on many phones when
- * leaving the hero for #services. Only enable on desktop-sized viewports with real hover.
- */
-function useHeroParallax() {
-  const [enabled, setEnabled] = useState(false);
-  useEffect(() => {
-    const mq = window.matchMedia("(min-width: 768px) and (hover: hover) and (pointer: fine)");
-    const run = () => setEnabled(mq.matches);
-    run();
-    mq.addEventListener("change", run);
-    return () => mq.removeEventListener("change", run);
-  }, []);
-  return enabled;
 }
 
 /** True when the device has real hover (mouse/trackpad), not touch-first — avoids scroll jank on phones. */

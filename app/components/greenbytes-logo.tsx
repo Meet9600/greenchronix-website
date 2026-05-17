@@ -7,27 +7,16 @@ import { siteConfig } from "../lib/site";
 /**
  * Brand mark for GreenChronix.
  *
- * The source asset has a white background and black "Chronix" text, which is
- * unreadable on the dark site. We apply a CSS filter that:
- *   - inverts lightness (black → white, white → near-black to blend with bg)
- *   - hue-rotates 180° so the GREEN parts of the logo stay green after invert,
- *     instead of becoming magenta (which is what a plain invert would do)
- *
- * Net effect: green stays green, black "Chronix" becomes white, white bg
- * disappears. If you later upload a transparent-background version of the
- * logo, set FILTER_CLASS to "" so the image renders as-is.
+ * The current source asset is designed for the site's dark UI, so it renders
+ * directly without color filters.
  */
 type Props = {
   className?: string;
   priority?: boolean;
 };
 
-// `mix-blend-screen` blends the (now-dark) inverted background into the
-// page background so the logo appears to float on the dark hero.
-const FILTER_CLASS = "[filter:invert(1)_hue-rotate(180deg)] mix-blend-screen";
-
 export function BrandLogo({
-  className = "h-14 w-auto max-w-[min(100%,280px)] md:h-16",
+  className = "h-14 w-[min(100%,300px)]",
   priority,
 }: Props) {
   const [broken, setBroken] = useState(false);
@@ -48,9 +37,9 @@ export function BrandLogo({
       alt={`${siteConfig.name} | ${siteConfig.tagline}`}
       width={1536}
       height={1024}
-      priority={priority}
-      className={`object-contain object-left ${FILTER_CLASS} ${className}`}
-      sizes="(max-width: 768px) 200px, 280px"
+      preload={priority}
+      className={`object-cover object-center ${className}`}
+      sizes="(max-width: 768px) 220px, 320px"
       onError={() => setBroken(true)}
     />
   );
@@ -58,7 +47,7 @@ export function BrandLogo({
 
 /** Header bar variant: tighter max width so nav stays balanced on small screens. */
 export function BrandMark({
-  className = "h-8 w-auto max-w-[160px] sm:max-w-[200px] md:h-10 md:max-w-[240px]",
+  className = "h-10 w-[170px] sm:h-11 sm:w-[210px] md:w-[260px]",
   priority = true,
 }: Props) {
   return <BrandLogo className={className} priority={priority} />;
