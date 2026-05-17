@@ -11,7 +11,10 @@ type Tier = {
   tagline: string;
   ideal: string;
   features: string[];
-  timeline: string;
+  packageLabel: string;
+  delivery: string;
+  deliveryNote: string;
+  support: string;
   highlighted?: boolean;
   ctaMessage: string;
 };
@@ -22,7 +25,10 @@ const tiers: Tier[] = [
     slug: "starter",
     tagline: "Land your idea online, fast.",
     ideal: "Solo founders, small businesses, portfolio sites.",
-    timeline: "15–35 days",
+    packageLabel: "Launch package",
+    delivery: "15-21 days",
+    deliveryNote: "Best when content and brand assets are ready.",
+    support: "14 days",
     features: [
       "Single-page or up-to-3-page site",
       "Responsive design + motion polish",
@@ -39,7 +45,10 @@ const tiers: Tier[] = [
     slug: "growth",
     tagline: "For teams that need real product work.",
     ideal: "Startups, SaaS shells, internal tools, CMS-driven sites.",
-    timeline: "15–35 days",
+    packageLabel: "Build package",
+    delivery: "25-35 days",
+    deliveryNote: "Discovery, build, review, and production launch.",
+    support: "30 days",
     highlighted: true,
     features: [
       "Multi-page site or web app (up to 8 routes)",
@@ -58,7 +67,10 @@ const tiers: Tier[] = [
     slug: "custom",
     tagline: "Bespoke builds & ongoing partnerships.",
     ideal: "AI agents, blockchain builds, automation suites, monthly care plans.",
-    timeline: "15–35 days",
+    packageLabel: "Partner package",
+    delivery: "Scoped plan",
+    deliveryNote: "Milestones are set after the first technical call.",
+    support: "Ongoing",
     features: [
       "Custom scope, milestones, and timeline",
       "AI agents, chatbots, and knowledge-base search",
@@ -190,9 +202,24 @@ function TierCard({ tier, delay }: { tier: Tier; delay: number }) {
 
         <div className="mt-6">
           <p className="text-2xl font-semibold text-white">Contact for pricing</p>
-          <p className="mt-1 text-xs uppercase tracking-wider text-zinc-500">
-            Timeline · {tier.timeline}
-          </p>
+        </div>
+
+        <div className="mt-5 rounded-2xl border border-white/[0.08] bg-zinc-950/45 p-4">
+          <div className="flex items-start justify-between gap-4">
+            <div>
+              <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-emerald-300/90">
+                {tier.packageLabel}
+              </p>
+              <p className="mt-2 text-2xl font-semibold tracking-tight text-white">
+                {tier.delivery}
+              </p>
+            </div>
+            <div className="rounded-xl border border-emerald-400/15 bg-emerald-400/[0.08] px-3 py-2 text-right">
+              <p className="text-[10px] uppercase tracking-wider text-zinc-500">Support</p>
+              <p className="mt-0.5 text-sm font-semibold text-emerald-200">{tier.support}</p>
+            </div>
+          </div>
+          <p className="mt-3 text-sm leading-relaxed text-zinc-400">{tier.deliveryNote}</p>
         </div>
 
         <p className="mt-5 text-xs uppercase tracking-wider text-zinc-500">Ideal for</p>
@@ -208,26 +235,28 @@ function TierCard({ tier, delay }: { tier: Tier; delay: number }) {
           ))}
         </ul>
 
-        <motion.a
-          href={`/#contact?tier=${tier.slug}`}
-          whileHover={{ scale: 1.02 }}
-          whileTap={{ scale: 0.98 }}
-          className={`mt-7 inline-flex items-center justify-center gap-2 rounded-2xl px-5 py-3.5 text-sm font-semibold transition-colors ${
-            tier.highlighted
-              ? "bg-[#34d399] text-zinc-950 shadow-[0_0_44px_-14px_rgba(52,211,153,0.55)]"
-              : "border border-emerald-500/20 bg-white/[0.04] text-white hover:border-[#34d399]/35 hover:bg-emerald-500/[0.06]"
-          }`}
-        >
-          Get a quote <span aria-hidden>→</span>
-        </motion.a>
-        <a
-          href={buildWhatsAppUrl(tier.ctaMessage)}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="mt-3 inline-flex items-center justify-center gap-1.5 text-xs font-medium text-zinc-400 transition-colors hover:text-[#34d399]"
-        >
-          Or chat on WhatsApp <span aria-hidden>→</span>
-        </a>
+        <div className="mt-auto pt-7">
+          <motion.a
+            href={`/#contact?tier=${tier.slug}`}
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+            className={`inline-flex w-full items-center justify-center gap-2 rounded-2xl px-5 py-3.5 text-sm font-semibold transition-colors ${
+              tier.highlighted
+                ? "bg-[#34d399] text-zinc-950 shadow-[0_0_44px_-14px_rgba(52,211,153,0.55)]"
+                : "border border-emerald-500/20 bg-white/[0.04] text-white hover:border-[#34d399]/35 hover:bg-emerald-500/[0.06]"
+            }`}
+          >
+            Get a quote <span aria-hidden>→</span>
+          </motion.a>
+          <a
+            href={buildWhatsAppUrl(tier.ctaMessage)}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-3 inline-flex w-full items-center justify-center gap-1.5 text-xs font-medium text-zinc-400 transition-colors hover:text-[#34d399]"
+          >
+            Or chat on WhatsApp <span aria-hidden>→</span>
+          </a>
+        </div>
       </div>
     </motion.div>
   );
