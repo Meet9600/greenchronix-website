@@ -301,7 +301,29 @@ export default function HomeContent() {
               tech="BI stack · SQL"
               delay={0.16}
             />
+            <ProjectCard
+              index={3}
+              name="Support AI chatbot"
+              result="Instant answers for leads"
+              tech="OpenAI · RAG · WhatsApp"
+              delay={0.24}
+            />
+            <ProjectCard
+              index={4}
+              name="Web3 wallet dashboard"
+              result="Clear token activity"
+              tech="Wallet flows · On-chain data"
+              delay={0.32}
+            />
+            <ProjectCard
+              index={5}
+              name="API deployment setup"
+              result="Stable production handoff"
+              tech="Vercel · APIs · Monitoring"
+              delay={0.4}
+            />
           </div>
+          <ProjectTrustPanel />
         </SectionMotion>
 
         <SectionMotion id="about" title="About" subtitle="Trust is built with proof, process, and communication.">
@@ -822,6 +844,70 @@ function ProjectCard({
         <p className="mt-2 text-sm text-zinc-400">{result}</p>
         <div className="mt-5 inline-flex rounded-full border border-white/10 bg-white/[0.05] px-3 py-1 text-[11px] text-zinc-400 transition-colors duration-300 group-hover:border-emerald-500/25 group-hover:text-zinc-300">
           {tech}
+        </div>
+      </div>
+    </motion.div>
+  );
+}
+
+function ProjectTrustPanel() {
+  const assurances = [
+    {
+      label: "Before build",
+      title: "Scope is locked first",
+      desc: "You get a clear deliverables list, timeline, and quote before we write production code.",
+    },
+    {
+      label: "During build",
+      title: "Progress stays visible",
+      desc: "We share updates, previews, and blockers early, so there are no surprise turns near launch.",
+    },
+    {
+      label: "After launch",
+      title: "Handoff is included",
+      desc: "Docs, deployment notes, and support are part of the delivery, not an extra mystery step.",
+    },
+  ] as const;
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 32 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-70px", amount: 0.2 }}
+      transition={{ duration: 0.58, ease: easeOutExpo }}
+      className="mt-6 overflow-hidden rounded-3xl border border-emerald-400/15 bg-emerald-500/[0.045] p-5 shadow-[0_24px_80px_-60px_rgba(52,211,153,0.2)]"
+    >
+      <div className="grid gap-5 lg:grid-cols-[0.9fr_1.6fr] lg:items-center">
+        <div>
+          <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-emerald-300/90">
+            Service assurance
+          </p>
+          <h3 className="mt-3 text-2xl font-semibold tracking-tight text-white">
+            Proof is not just the final screen.
+          </h3>
+          <p className="mt-3 text-sm leading-relaxed text-zinc-400">
+            Every project is delivered with a simple operating rhythm: agreed scope, visible
+            progress, clean launch, and support after handoff.
+          </p>
+        </div>
+
+        <div className="grid gap-3 md:grid-cols-3">
+          {assurances.map((item, i) => (
+            <motion.div
+              key={item.title}
+              initial={{ opacity: 0, y: 18 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.35 }}
+              transition={{ duration: 0.48, delay: 0.08 + i * 0.06, ease: easeOutExpo }}
+              className="rounded-2xl border border-white/[0.08] bg-black/20 p-4"
+            >
+              <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-zinc-500">
+                {item.label}
+              </p>
+              <p className="mt-2 text-sm font-semibold text-white">{item.title}</p>
+              <p className="mt-2 text-sm leading-relaxed text-zinc-400">{item.desc}</p>
+            </motion.div>
+          ))}
         </div>
       </div>
     </motion.div>
