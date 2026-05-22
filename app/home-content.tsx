@@ -320,10 +320,7 @@ export default function HomeContent() {
             <div className="pointer-events-none absolute -right-24 -top-24 h-64 w-64 rounded-full bg-emerald-500/25 blur-3xl" />
             <div className="pointer-events-none absolute -bottom-24 -left-24 h-64 w-64 rounded-full bg-teal-500/18 blur-3xl" />
             <p className="relative max-w-3xl text-lg text-zinc-300">
-              Hi! We&rsquo;re{" "}
-              <span className="font-semibold text-white">{siteConfig.founders.primary}</span> and{" "}
-              <span className="font-semibold text-white">{siteConfig.founders.secondary}</span>{" "}
-              from {siteConfig.name}. We ship modern web experiences, AI workflows,
+              Hi! We&rsquo;re {siteConfig.name}. We ship modern web experiences, AI workflows,
               blockchain features, automation, and dashboards, with the clarity and footprint of a
               small team.
             </p>
