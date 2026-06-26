@@ -2,9 +2,24 @@
 
 import { motion, MotionConfig } from "framer-motion";
 import Link from "next/link";
-import { useEffect, useState, type FormEvent, type ReactNode } from "react";
+import { useEffect, useState, type FormEvent, type ReactNode, Suspense } from "react";
+import Image from "next/image";
+import dynamic from "next/dynamic";
 import { GreenBytesLogo, GreenBytesMark } from "./components/greenbytes-logo";
 import { buildWhatsAppUrl, getBookingUrl, siteConfig } from "./lib/site";
+import TiltCard, { TiltCardFront } from "./components/tilt-card";
+import ThreeErrorBoundary from "./components/three-error-boundary";
+import useWebGLCapable from "./hooks/use-webgl-capable";
+
+const DynamicHeroCanvas = dynamic(
+  () => import("./components/hero-canvas"),
+  { ssr: false }
+);
+
+const DynamicParticleField = dynamic(
+  () => import("./components/particle-field"),
+  { ssr: false }
+);
 
 const easeOutExpo = [0.22, 1, 0.36, 1] as const;
 
@@ -19,7 +34,7 @@ const fadeUp = {
 
 const stagger = {
   show: {
-    transition: { staggerChildren: 0.1, delayChildren: 0.14 },
+    transition: { staggerChildren: 0.08, delayChildren: 0.14 },
   },
 };
 
@@ -38,7 +53,7 @@ const springReveal = { type: "spring" as const, stiffness: 220, damping: 28, mas
 const sectionHeadContainer = {
   hidden: {},
   show: {
-    transition: { staggerChildren: 0.1, delayChildren: 0.02 },
+    transition: { staggerChildren: 0.08, delayChildren: 0.01 },
   },
 };
 
@@ -71,7 +86,7 @@ const sectionSubtitle = {
   show: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.6, ease: easeOutExpo },
+    transition: { type: "spring" as const, stiffness: 240, damping: 24 },
   },
 };
 
@@ -83,9 +98,13 @@ const SECTION_LABEL: Record<string, string> = {
 };
 
 export default function HomeContent() {
+  const isCapable = useWebGLCapable();
   return (
     <MotionConfig reducedMotion="user">
       <div className="relative min-h-screen overflow-x-hidden bg-[#040806] text-zinc-50">
+      <Suspense fallback={null}>
+        <DynamicParticleField />
+      </Suspense>
       <AmbientBackground />
       <GrainOverlay />
 
@@ -136,8 +155,26 @@ export default function HomeContent() {
 
       <main className="relative z-10 pt-28">
         <motion.section
-          className="mx-auto max-w-6xl px-6 pb-16 pt-6"
+          className="relative mx-auto max-w-6xl px-6 pb-16 pt-6"
         >
+          <ThreeErrorBoundary
+            fallback={
+              <div className="absolute inset-0 z-0 pointer-events-none" aria-hidden>
+                <Image src="/network-fallback.svg" alt="" fill className="object-cover opacity-30" />
+              </div>
+            }
+          >
+            {isCapable ? (
+              <Suspense fallback={null}>
+                <DynamicHeroCanvas />
+              </Suspense>
+            ) : (
+              <div className="absolute inset-0 z-0 pointer-events-none" aria-hidden>
+                <Image src="/network-fallback.svg" alt="" fill className="object-cover opacity-30" />
+              </div>
+            )}
+          </ThreeErrorBoundary>
+          <div className="relative z-10">
           <motion.div
             variants={stagger}
             initial="hidden"
@@ -208,6 +245,7 @@ export default function HomeContent() {
               <FloatingPanel />
             </motion.div>
           </motion.div>
+          </div>
         </motion.section>
 
         <SectionMotion
@@ -711,16 +749,17 @@ function HoverLiftCard({
         : "from-teal-500/25";
 
   return (
+    <TiltCard maxTilt={finePointerHover ? 12 : 4}>
     <motion.div
       initial={{ opacity: 0, y: 52, scale: 0.93 }}
       whileInView={{ opacity: 1, y: 0, scale: 1 }}
       viewport={{ once: true, margin: "-50px", amount: 0.12 }}
       transition={{
         type: "spring",
-        stiffness: 200,
-        damping: 26,
+        stiffness: 240,
+        damping: 24,
         mass: 0.88,
-        delay: index * 0.12,
+        delay: index * 0.08,
       }}
       whileHover={
         finePointerHover
@@ -736,7 +775,9 @@ function HoverLiftCard({
         className={`pointer-events-none absolute -right-12 -top-12 h-44 w-44 rounded-full bg-gradient-to-br ${glow} to-transparent opacity-0 blur-2xl transition-opacity duration-500 group-hover:opacity-100`}
       />
       <div className="relative z-[2]">
-        <h3 className="text-lg font-semibold tracking-tight">{title}</h3>
+        <TiltCardFront>
+          <h3 className="text-lg font-semibold tracking-tight">{title}</h3>
+        </TiltCardFront>
         <p className="mt-3 text-sm leading-relaxed text-zinc-400">{desc}</p>
         <ul className="mt-5 space-y-2.5 text-sm text-zinc-300">
           {items.map((it, i) => (
@@ -763,6 +804,7 @@ function HoverLiftCard({
         </ul>
       </div>
     </motion.div>
+    </TiltCard>
   );
 }
 
@@ -781,14 +823,15 @@ function ProjectCard({
 }) {
   const finePointerHover = useFinePointerHover();
   return (
+    <TiltCard maxTilt={finePointerHover ? 12 : 4}>
     <motion.div
       initial={{ opacity: 0, y: 48, scale: 0.93 }}
       whileInView={{ opacity: 1, y: 0, scale: 1 }}
       viewport={{ once: true, amount: 0.18 }}
       transition={{
         type: "spring",
-        stiffness: 200,
-        damping: 27,
+        stiffness: 240,
+        damping: 24,
         mass: 0.9,
         delay: delay + index * 0.03,
       }}
@@ -804,13 +847,16 @@ function ProjectCard({
     >
       <div className="absolute inset-0 bg-[radial-gradient(800px_220px_at_50%_-10%,rgba(255,255,255,0.08),transparent)] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
       <div className="relative z-[2]">
-        <p className="text-base font-semibold tracking-tight">{name}</p>
-        <p className="mt-2 text-sm text-zinc-400">{result}</p>
+        <TiltCardFront>
+          <p className="text-base font-semibold tracking-tight">{name}</p>
+          <p className="mt-2 text-sm text-zinc-400">{result}</p>
+        </TiltCardFront>
         <div className="mt-5 inline-flex rounded-full border border-white/10 bg-white/[0.05] px-3 py-1 text-[11px] text-zinc-400 transition-colors duration-300 group-hover:border-emerald-500/25 group-hover:text-zinc-300">
           {tech}
         </div>
       </div>
     </motion.div>
+    </TiltCard>
   );
 }
 
