@@ -10,6 +10,7 @@ import {
   environmentEngine, 
   renderLoopEngine,
   DebugOverlayRenderer 
+} from "../three/world-engine";
 import { sceneManager } from "../three/SceneManager";
 import { Scene01Arrival } from "./scene-01-arrival";
 import { Scene02Engineering } from "./scene-02-engineering";
