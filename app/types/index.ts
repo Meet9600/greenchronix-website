@@ -14,4 +14,5 @@ export interface SceneState {
   currentSceneId: SceneId;
   scrollProgress: number;
   activeDomainId?: string | null;
+  activePipelineStageId?: string | null;
 }

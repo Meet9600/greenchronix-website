@@ -52,6 +52,25 @@ export class CameraEngine {
       this.isParallaxEnabled = true;
     }
     
+    if (state.currentSceneId === 3) {
+      // Scene 04: Engineering Pipeline
+      // scrollProgress > 0.7 triggers this scene. Map 0.7 - 1.0 to a 0 - 1 progression.
+      const p = Math.max(0, Math.min(1, (state.scrollProgress - 0.7) / 0.3));
+      
+      // Camera Z moves from 2 down to -24
+      const targetZ = 2 - (p * 26);
+      
+      gsap.to(this.camera.position, {
+        x: 0,
+        y: 0,
+        z: targetZ,
+        duration: 0.8, // Snappy but smooth tracking
+        ease: "power2.out",
+        overwrite: "auto",
+      });
+      return;
+    }
+    
     const sceneDef = SCENE_DEFINITIONS.find(s => s.id === state.currentSceneId) || SCENE_DEFINITIONS[0];
     const target = sceneDef.camera.target;
 

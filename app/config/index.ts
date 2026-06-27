@@ -99,8 +99,8 @@ export const SCENE_DEFINITIONS = [
   {
     id: 3,
     name: "PIPELINE",
-    camera: { target: [-2, 0, 5] as [number, number, number] },
-    core: { scale: 1.2, rotationY: Math.PI },
+    camera: { target: [0, 0, 2] as [number, number, number] },
+    core: { scale: 1.0, rotationY: Math.PI },
   }
 ];
 
@@ -149,6 +149,57 @@ export const ENGINEERING_DOMAINS = [
     pos: [0, 3.5, 0.5] as [number, number, number],
     color: "#EF4444",
     geometry: "tetrahedron",
+  }
+];
+
+export const PIPELINE_STAGES = [
+  {
+    id: "discover",
+    title: "Discover",
+    desc: "Understand the business problem, users, constraints, and success metrics before proposing solutions.",
+    pos: [-2.5, 0, -4] as [number, number, number],
+    color: "#00E38C",
+    geometry: "torus",
+  },
+  {
+    id: "architect",
+    title: "Architect",
+    desc: "Design scalable, secure, and maintainable system architecture.",
+    pos: [2.5, 0, -9] as [number, number, number],
+    color: "#3B82F6",
+    geometry: "box-wireframe",
+  },
+  {
+    id: "engineer",
+    title: "Engineer",
+    desc: "Develop modular, production-ready software using modern engineering practices.",
+    pos: [-2.5, 0, -14] as [number, number, number],
+    color: "#F59E0B",
+    geometry: "stacked-boxes",
+  },
+  {
+    id: "validate",
+    title: "Validate",
+    desc: "Performance testing, accessibility, security, quality assurance, and cross-device verification.",
+    pos: [2.5, 0, -19] as [number, number, number],
+    color: "#FFFFFF",
+    geometry: "shield-rings",
+  },
+  {
+    id: "deploy",
+    title: "Deploy",
+    desc: "Reliable deployment with monitoring, observability, rollback strategy, and automation.",
+    pos: [-2.5, 0, -24] as [number, number, number],
+    color: "#EF4444",
+    geometry: "burst",
+  },
+  {
+    id: "evolve",
+    title: "Evolve",
+    desc: "Continuous improvement driven by real-world feedback and measurable outcomes.",
+    pos: [0, 0, -29] as [number, number, number],
+    color: "#A855F7",
+    geometry: "infinity",
   }
 ];
 

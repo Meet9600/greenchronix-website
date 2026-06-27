@@ -6,6 +6,7 @@ export class SceneManager {
     currentSceneId: 0,
     scrollProgress: 0,
     activeDomainId: null,
+    activePipelineStageId: null,
   };
 
   private listeners: Set<(state: SceneState) => void> = new Set();
@@ -30,11 +31,17 @@ export class SceneManager {
   public setScene(id: SceneId) {
     this.state.currentSceneId = id;
     if (id !== 2) this.state.activeDomainId = null;
+    if (id !== 3) this.state.activePipelineStageId = null;
     this.notify();
   }
 
   public setDomain(id: string | null) {
     this.state.activeDomainId = id;
+    this.notify();
+  }
+
+  public setPipelineStage(id: string | null) {
+    this.state.activePipelineStageId = id;
     this.notify();
   }
 
