@@ -1,0 +1,6 @@
+export const FEATURE_FLAGS = {
+  ENABLE_GSAP_SCROLL_TRIGGER: true,
+  ENABLE_DEBUG_GUI: false,
+  ENABLE_AUDIO: false,
+  FORCE_FALLBACK_MODE: false,
+};

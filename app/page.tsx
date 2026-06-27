@@ -1,5 +1,11 @@
-import HomeContent from "./home-content";
+import { Experience } from "./components/experience";
 
 export default function Home() {
-  return <HomeContent />;
+  return (
+    <main className="relative min-h-[400vh] bg-[#050505]">
+      <div className="fixed inset-0 z-0">
+        <Experience />
+      </div>
+    </main>
+  );
 }
