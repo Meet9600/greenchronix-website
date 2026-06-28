@@ -8,11 +8,13 @@ export interface PerformanceBudget {
   textureResolution: "high" | "low";
 }
 
-export type SceneId = 0 | 1 | 2 | 3;
+export type SceneId = 0 | 1 | 2 | 3 | 4;
 
 export interface SceneState {
   currentSceneId: SceneId;
   scrollProgress: number;
   activeDomainId?: string | null;
   activePipelineStageId?: string | null;
+  activeImpactDomainId?: string | null;
+  hoveredImpactDomainId?: string | null;
 }

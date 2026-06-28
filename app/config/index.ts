@@ -101,6 +101,12 @@ export const SCENE_DEFINITIONS = [
     name: "PIPELINE",
     camera: { target: [0, 0, 2] as [number, number, number] },
     core: { scale: 1.0, rotationY: Math.PI },
+  },
+  {
+    id: 4,
+    name: "IMPACT",
+    camera: { target: [0, 0, 0] as [number, number, number] }, // Handled dynamically in CameraEngine
+    core: { scale: 1.0, rotationY: Math.PI },
   }
 ];
 
@@ -202,4 +208,47 @@ export const PIPELINE_STAGES = [
     geometry: "infinity",
   }
 ];
+
+export const IMPACT_DOMAINS = [
+  {
+    id: "ai-systems",
+    title: "Intelligent AI Systems",
+    desc: "Neural pathways driving automated reasoning and intelligent agent ecosystems.",
+    examples: ["AI Agents", "LLM Applications", "Intelligent Automation", "Computer Vision"],
+    pos: [-3.5, 2.5, -35] as [number, number, number],
+    color: "#00E38C",
+    geometry: "icosahedron",
+  },
+  {
+    id: "enterprise-platforms",
+    title: "Enterprise Platforms",
+    desc: "Scalable digital architecture built to support enterprise-grade workflows.",
+    examples: ["ERP Systems", "CRM Platforms", "Workflow Automation", "Internal Applications"],
+    pos: [0, -2, -35] as [number, number, number],
+    color: "#3B82F6",
+    geometry: "box",
+  },
+  {
+    id: "data-analytics",
+    title: "Data & Analytics",
+    desc: "High-throughput data streaming and real-time decision intelligence pipelines.",
+    examples: ["Data Engineering", "Analytics Platforms", "Business Intelligence", "Decision Support"],
+    pos: [3.5, 2.5, -35] as [number, number, number],
+    color: "#A855F7",
+    geometry: "octahedron",
+  }
+];
+
+export const EXPERIENCE_LAYOUT = {
+  desktop: {
+    worldOffset: [2.5, 0, 0] as [number, number, number], // Push 3D world to the right
+  },
+  tablet: {
+    worldOffset: [0, -1.5, 0] as [number, number, number], // Push 3D world down
+  },
+  mobile: {
+    worldOffset: [0, -2.0, 0] as [number, number, number], // Push 3D world down further
+  }
+};
+
 

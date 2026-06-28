@@ -3,6 +3,7 @@
 import React, { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import { SceneLayout } from "./scene-layout";
 
 export function Scene02Engineering() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -15,8 +16,8 @@ export function Scene02Engineering() {
   }, []);
 
   return (
-    <div className="absolute inset-0 pointer-events-none pt-[15%] md:pt-[25%] px-6 md:px-20">
-      <div ref={containerRef} className="max-w-[90%] md:max-w-[420px] pointer-events-auto">
+    <SceneLayout>
+      <div ref={containerRef}>
         <h2 className="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-[-0.02em] text-white leading-[1.05] text-balance">
           Engineering Clarity<br className="hidden md:block" /> From Complexity.
         </h2>
@@ -25,6 +26,6 @@ export function Scene02Engineering() {
           We build intelligent digital systems designed for precision, performance, and long-term stability. Hover the active network nodes to explore our principles.
         </p>
       </div>
-    </div>
+    </SceneLayout>
   );
 }

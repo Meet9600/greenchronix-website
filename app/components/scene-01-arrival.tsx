@@ -3,6 +3,7 @@
 import React, { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import { SceneLayout } from "./scene-layout";
 import { GreenBytesMark } from "./greenbytes-logo";
 
 export function Scene01Arrival() {
@@ -37,12 +38,12 @@ export function Scene01Arrival() {
   }, { scope: containerRef });
 
   return (
-    <div ref={containerRef} className="w-full h-full flex flex-col pointer-events-auto">
+    <div ref={containerRef} className="w-full h-full pointer-events-none">
       {/* Subtle Background Vignette */}
       <div className="absolute inset-0 z-10 pointer-events-none bg-[radial-gradient(circle_at_center,transparent_20%,#050505_120%)] opacity-80" />
 
       {/* Minimal Transparent Navigation */}
-      <nav className="relative w-full px-8 py-6 flex justify-between items-center z-50">
+      <nav className="absolute top-0 w-full px-8 py-6 flex justify-between items-center z-50 pointer-events-auto">
         <div className="nav-element text-white w-8 h-8">
           <GreenBytesMark /> 
         </div>
@@ -54,13 +55,13 @@ export function Scene01Arrival() {
       </nav>
 
       {/* Hero Content */}
-      <div className="absolute inset-0 pointer-events-none flex flex-col justify-end pb-[15%] md:pb-24 px-6 md:px-20 z-40">
-        <div className="max-w-3xl pointer-events-auto">
+      <SceneLayout>
+        <div className="z-40">
           <h1 className="hero-headline text-4xl md:text-5xl lg:text-7xl font-semibold tracking-[-0.03em] text-white leading-[1.05] text-balance">
             We Build The Intelligent Future.
           </h1>
           
-          <p className="hero-subheadline mt-8 max-w-xl text-lg md:text-xl text-zinc-400 font-light text-balance leading-relaxed">
+          <p className="hero-subheadline mt-8 text-lg md:text-xl text-zinc-400 font-light text-balance leading-relaxed">
             Engineering intelligent digital systems with clarity, precision, and long-term thinking.
           </p>
 
@@ -70,7 +71,7 @@ export function Scene01Arrival() {
             </button>
           </div>
         </div>
-      </div>
+      </SceneLayout>
     </div>
   );
 }

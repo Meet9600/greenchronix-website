@@ -52,22 +52,39 @@ export class CameraEngine {
       this.isParallaxEnabled = true;
     }
     
-    if (state.currentSceneId === 3) {
-      // Scene 04: Engineering Pipeline
-      // scrollProgress > 0.7 triggers this scene. Map 0.7 - 1.0 to a 0 - 1 progression.
-      const p = Math.max(0, Math.min(1, (state.scrollProgress - 0.7) / 0.3));
+    if (state.currentSceneId === 3 || state.currentSceneId === 4) {
+      // Shared progression logic for Pipeline and Impact scenes
+      // Scene 3: 0.5 -> 0.75
+      // Scene 4: 0.75 -> 1.0
+      // Total progress from 0.5 to 1.0 mapped to 0 -> 1
+      const p = Math.max(0, Math.min(1, (state.scrollProgress - 0.5) / 0.5));
       
-      // Camera Z moves from 2 down to -24
-      const targetZ = 2 - (p * 26);
+      // Camera Z moves from 2 down to -28 smoothly across both scenes
+      const targetZ = 2 - (p * 30);
       
+      // In Scene 05 (p > 0.5), gradually rise and pitch down slightly
+      const isImpact = p > 0.5;
+      const impactProgress = isImpact ? (p - 0.5) * 2 : 0; // 0 to 1 during Scene 5
+      
+      const targetY = impactProgress * 4.5; 
+      const targetRotX = -(impactProgress * 0.15);
+
       gsap.to(this.camera.position, {
         x: 0,
-        y: 0,
+        y: targetY,
         z: targetZ,
         duration: 0.8, // Snappy but smooth tracking
         ease: "power2.out",
         overwrite: "auto",
       });
+
+      gsap.to(this.camera.rotation, {
+        x: targetRotX,
+        duration: 0.8,
+        ease: "power2.out",
+        overwrite: "auto",
+      });
+
       return;
     }
     
@@ -91,12 +108,19 @@ export class CameraEngine {
     const targetX = (mouseY * 0.12);
     const targetY = (mouseX * 0.12);
     
-    this.camera.rotation.x += (targetX - this.camera.rotation.x) * 0.05;
-    this.camera.rotation.y += (targetY - this.camera.rotation.y) * 0.05;
+    // If not in a state where rotation.x is animated (Scene 4/5 pitch), apply normal X parallax
+    // We can just rely on isParallaxEnabled, but since we disabled it for Scene 3 domains,
+    // let's just apply full parallax but maybe without clamping x if we are pitching?
+    // Actually, Scene 05 needs pitch, so we can't overwrite rotation.x with parallax directly.
+    // We will just add rotation.y parallax globally, and only rotation.x if rotation.x is near 0.
     
-    const cap = 0.14;
-    this.camera.rotation.x = Math.max(-cap, Math.min(cap, this.camera.rotation.x));
-    this.camera.rotation.y = Math.max(-cap, Math.min(cap, this.camera.rotation.y));
+    if (Math.abs(this.camera.rotation.x) < 0.05) {
+      this.camera.rotation.x += (targetX - this.camera.rotation.x) * 0.05;
+      const cap = 0.14;
+      this.camera.rotation.x = Math.max(-cap, Math.min(cap, this.camera.rotation.x));
+    }
+    
+    this.camera.rotation.y += (targetY - this.camera.rotation.y) * 0.05;
   }
 
   public getPosition(): [number, number, number] {

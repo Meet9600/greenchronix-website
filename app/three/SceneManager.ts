@@ -7,6 +7,8 @@ export class SceneManager {
     scrollProgress: 0,
     activeDomainId: null,
     activePipelineStageId: null,
+    activeImpactDomainId: null,
+    hoveredImpactDomainId: null,
   };
 
   private listeners: Set<(state: SceneState) => void> = new Set();
@@ -24,25 +26,42 @@ export class SceneManager {
   }
 
   public updateScroll(progress: number) {
-    this.state.scrollProgress = progress;
+    this.state = { ...this.state, scrollProgress: progress };
     this.notify();
   }
 
   public setScene(id: SceneId) {
-    this.state.currentSceneId = id;
-    if (id !== 2) this.state.activeDomainId = null;
-    if (id !== 3) this.state.activePipelineStageId = null;
+    this.state = {
+      ...this.state,
+      currentSceneId: id,
+      activeDomainId: id === 2 ? this.state.activeDomainId : null,
+      activePipelineStageId: id === 3 ? this.state.activePipelineStageId : null,
+      activeImpactDomainId: id === 4 ? this.state.activeImpactDomainId : null,
+      hoveredImpactDomainId: null
+    };
     this.notify();
   }
 
   public setDomain(id: string | null) {
-    this.state.activeDomainId = id;
+    this.state = { ...this.state, activeDomainId: id };
     this.notify();
   }
 
   public setPipelineStage(id: string | null) {
-    this.state.activePipelineStageId = id;
+    this.state = { ...this.state, activePipelineStageId: id };
     this.notify();
+  }
+
+  public setImpactDomain(id: string | null) {
+    this.state = { ...this.state, activeImpactDomainId: id };
+    this.notify();
+  }
+
+  public setHoveredImpactDomain(id: string | null) {
+    if (this.state.hoveredImpactDomainId !== id) {
+      this.state = { ...this.state, hoveredImpactDomainId: id };
+      this.notify();
+    }
   }
 
   public getState(): SceneState {

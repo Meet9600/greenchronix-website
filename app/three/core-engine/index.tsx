@@ -10,6 +10,7 @@ import { CoreEngineProps } from "./types";
 import { NetworkNodes } from "./NetworkNodes";
 import { DomainNodes } from "./DomainNodes";
 import { PipelineNodes } from "./PipelineNodes";
+import { ImpactNodes } from "./ImpactNodes";
 import { ENGINEERING_DOMAINS } from "../../config";
 
 export function EngineeringCore({ sceneState }: CoreEngineProps) {
@@ -73,6 +74,9 @@ export function EngineeringCore({ sceneState }: CoreEngineProps) {
       <DomainNodes sceneState={sceneState} />
       {sceneState.currentSceneId === 3 && (
         <PipelineNodes activePipelineStageId={sceneState.activePipelineStageId} />
+      )}
+      {sceneState.currentSceneId === 4 && (
+        <ImpactNodes activeImpactDomainId={sceneState.activeImpactDomainId} />
       )}
     </group>
   );
