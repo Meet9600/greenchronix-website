@@ -113,6 +113,12 @@ export const SCENE_DEFINITIONS = [
     name: "ARCHITECTURE",
     camera: { target: [0, 0, 0] as [number, number, number] }, // Handled dynamically
     core: { scale: 1.0, rotationY: Math.PI },
+  },
+  {
+    id: 6,
+    name: "PARTNERSHIP",
+    camera: { target: [0, 0, 0] as [number, number, number] }, // Handled dynamically
+    core: { scale: 1.0, rotationY: Math.PI },
   }
 ];
 
@@ -301,6 +307,51 @@ export const ARCHITECTURE_LAYERS = [
     technologies: ["Customers", "Employees", "Partners", "Stakeholders"],
     yOffset: 24,
     color: "#00E38C",
+  }
+];
+
+export const PARTNERSHIP_STAGES = [
+  {
+    id: "discover",
+    title: "Discover",
+    desc: "Understanding objectives, mapping constraints, and aligning on long-term strategy.",
+    pos: 0, 
+  },
+  {
+    id: "design",
+    title: "Design",
+    desc: "Architecting systems for scale, security, and seamless user experience.",
+    pos: 1,
+  },
+  {
+    id: "build",
+    title: "Build",
+    desc: "Disciplined engineering delivering modular and testable digital solutions.",
+    pos: 2,
+  },
+  {
+    id: "validate",
+    title: "Validate",
+    desc: "Rigorous testing across performance, security, and usability benchmarks.",
+    pos: 3,
+  },
+  {
+    id: "deploy",
+    title: "Deploy",
+    desc: "Automated and secure delivery into production environments.",
+    pos: 4,
+  },
+  {
+    id: "support",
+    title: "Support",
+    desc: "Proactive monitoring, incident response, and performance tuning.",
+    pos: 5,
+  },
+  {
+    id: "evolve",
+    title: "Evolve",
+    desc: "Continuous refinement, feature expansion, and system scaling.",
+    pos: 6,
   }
 ];
 

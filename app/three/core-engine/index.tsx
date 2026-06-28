@@ -12,6 +12,7 @@ import { DomainNodes } from "./DomainNodes";
 import { PipelineNodes } from "./PipelineNodes";
 import { ImpactNodes } from "./ImpactNodes";
 import { ArchitectureNodes } from "./ArchitectureNodes";
+import { PartnershipNodes } from "./PartnershipNodes";
 import { ENGINEERING_DOMAINS } from "../../config";
 
 export function EngineeringCore({ sceneState }: CoreEngineProps) {
@@ -81,7 +82,16 @@ export function EngineeringCore({ sceneState }: CoreEngineProps) {
           <ImpactNodes activeImpactDomainId={sceneState.activeImpactDomainId} />
         )}
         {sceneState.currentSceneId >= 5 && (
-          <ArchitectureNodes activeArchitectureLayerId={sceneState.activeArchitectureLayerId} />
+          <ArchitectureNodes 
+            activeArchitectureLayerId={sceneState.activeArchitectureLayerId} 
+            isCompressed={sceneState.currentSceneId >= 6}
+          />
+        )}
+        {sceneState.currentSceneId >= 6 && (
+          <PartnershipNodes 
+            activeStageId={sceneState.activePartnershipStageId}
+            hoveredStageId={sceneState.hoveredPartnershipStageId}
+          />
         )}
       </group>
     </>

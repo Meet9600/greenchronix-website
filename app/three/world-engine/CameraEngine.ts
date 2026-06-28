@@ -52,20 +52,20 @@ export class CameraEngine {
       this.isParallaxEnabled = true;
     }
     
-    if (state.currentSceneId === 3 || state.currentSceneId === 4 || state.currentSceneId === 5) {
-      // Progression logic for Pipeline, Impact, and Architecture scenes
+    if (state.currentSceneId >= 3 && state.currentSceneId <= 6) {
+      // Progression logic for Pipeline, Impact, Architecture, and Partnership scenes
       
-      // Scene 3 (Pipeline): 0.5 -> 0.66
-      const pPipeline = Math.max(0, Math.min(1, (state.scrollProgress - 0.5) / 0.16));
+      // Scene 3 (Pipeline): 0.52 -> 0.68
+      const pPipeline = Math.max(0, Math.min(1, (state.scrollProgress - 0.36) / 0.16));
       let targetZ = 2 - (pPipeline * 31); // ends at Z = -29
       
-      // Scene 4 (Impact): 0.66 -> 0.83
-      const pImpact = Math.max(0, Math.min(1, (state.scrollProgress - 0.66) / 0.17));
+      // Scene 4 (Impact): 0.68 -> 0.86
+      const pImpact = Math.max(0, Math.min(1, (state.scrollProgress - 0.52) / 0.16));
       let targetY = pImpact * 4.5;
       let targetRotX = -(pImpact * 0.15);
       
-      // Scene 5 (Architecture): 0.83 -> 1.0
-      const pArch = Math.max(0, Math.min(1, (state.scrollProgress - 0.83) / 0.17));
+      // Scene 5 (Architecture): 0.86 -> 1.0
+      const pArch = Math.max(0, Math.min(1, (state.scrollProgress - 0.68) / 0.18));
       
       if (pArch > 0) {
         // Move back to view the Core (which unfolds into Architecture)
@@ -74,8 +74,26 @@ export class CameraEngine {
         targetRotX = -0.15 - (pArch * 0.1); // pitch down slightly more
       }
 
+      // Scene 6 (Partnership): 0.86 -> 1.0 (Wait, Scene 07 is 0.86 to 1.0)
+      const pPartner = Math.max(0, Math.min(1, (state.scrollProgress - 0.86) / 0.14));
+      
+      let targetX = 0;
+      
+      if (pPartner > 0) {
+        // Pull back from Scene 06 and apply slow orbital drift
+        // Move camera to center of bridge [12.5, 12, -29] but pull back to Z = -5
+        targetX = 12.5;
+        targetY = 24.5 - (pPartner * 12.5); // Descend to Y=12
+        targetZ = 6 - (pPartner * 6); // Pull back Z
+        targetRotX = -0.25 + (pPartner * 0.25); // Pitch back to 0
+        
+        // Orbital drift (5-10 degrees over the scene) -> pan slowly across
+        targetX += pPartner * 4; // slowly drift X
+        targetZ += pPartner * 2; // slowly drift Z
+      }
+
       gsap.to(this.camera.position, {
-        x: 0,
+        x: targetX,
         y: targetY,
         z: targetZ,
         duration: 0.8, // Snappy but smooth tracking

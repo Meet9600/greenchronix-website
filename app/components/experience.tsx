@@ -18,6 +18,7 @@ import { Scene03Capabilities } from "./scene-03-capabilities";
 import { Scene04Pipeline } from "./scene-04-pipeline";
 import { Scene05Impact } from "./scene-05-impact";
 import { Scene06Architecture } from "./scene-06-architecture";
+import { Scene07Partnership } from "./scene-07-partnership";
 import { useSyncExternalStore } from "react";
 import { useExperienceLayout } from "../hooks/use-experience-layout";
 import { SceneId } from "../types";
@@ -32,11 +33,12 @@ function ScrollOrchestrator() {
       sceneManager.updateScroll(progress);
       
       let newScene: SceneId = 0;
-      if (progress > 0.83) newScene = 5;
-      else if (progress > 0.66) newScene = 4;
-      else if (progress > 0.5) newScene = 3;
-      else if (progress > 0.33) newScene = 2;
-      else if (progress > 0.16) newScene = 1;
+      if (progress > 0.86) newScene = 6;
+      else if (progress > 0.68) newScene = 5;
+      else if (progress > 0.52) newScene = 4;
+      else if (progress > 0.36) newScene = 3;
+      else if (progress > 0.22) newScene = 2;
+      else if (progress > 0.10) newScene = 1;
       
       if (newScene !== sceneManager.getState().currentSceneId) {
         sceneManager.setScene(newScene);
@@ -55,7 +57,7 @@ function WorldOrchestrator() {
   const { camera } = useThree();
   
   useEffect(() => {
-    // @ts-ignore
+    // @ts-expect-error - cameraEngine requires explicit typing initialization
     cameraEngine.init(camera);
   }, [camera]);
 
@@ -132,6 +134,9 @@ export function Experience() {
         </div>
         <div className={`absolute inset-0 transition-opacity duration-700 ${sceneState.currentSceneId === 5 ? 'opacity-100 pointer-events-auto delay-1000' : 'opacity-0 pointer-events-none'}`}>
           <Scene06Architecture sceneState={sceneState} />
+        </div>
+        <div className={`absolute inset-0 transition-opacity duration-700 ${sceneState.currentSceneId === 6 ? 'opacity-100 pointer-events-auto delay-1000' : 'opacity-0 pointer-events-none'}`}>
+          <Scene07Partnership sceneState={sceneState} />
         </div>
       </div>
     </div>

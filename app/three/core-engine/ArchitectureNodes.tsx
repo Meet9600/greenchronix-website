@@ -1,9 +1,9 @@
 "use client";
 
-import React, { useRef, useState, useMemo, useEffect } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import * as THREE from "three";
 import { useFrame, ThreeEvent } from "@react-three/fiber";
-import { Html, Box, Cylinder } from "@react-three/drei";
+import { Html, Cylinder } from "@react-three/drei";
 import gsap from "gsap";
 import { ARCHITECTURE_LAYERS, COLORS } from "../../config";
 import { sceneManager } from "../SceneManager";
@@ -100,12 +100,14 @@ function LayerNode({
   data, 
   index,
   activeLayerId, 
-  hoveredLayerId 
+  hoveredLayerId,
+  isCompressed
 }: { 
   data: typeof ARCHITECTURE_LAYERS[0],
   index: number,
   activeLayerId?: string | null,
-  hoveredLayerId?: string | null
+  hoveredLayerId?: string | null,
+  isCompressed?: boolean
 }) {
   const [localHover, setLocalHover] = useState(false);
   const layerRef = useRef<THREE.Group>(null);
@@ -139,9 +141,19 @@ function LayerNode({
     if (!layerRef.current || !platformMatRef.current || !techGroupRef.current) return;
     
     const targetScale = isDirectTarget ? 1.1 : 1;
+    // Determine compression target (e.g. compress to Y=12 for the bridge)
+    const targetY = isCompressed ? 12 + (index * 0.5) : data.yOffset;
+    
+    gsap.to(layerRef.current!.position, {
+      y: targetY,
+      duration: 1.2,
+      ease: "power2.inOut",
+      overwrite: "auto"
+    });
+
     // Glow brightly if direct target, glow softly if dependency, dim if not related
-    const targetEmissive = isDirectTarget ? 3.0 : isDependency ? 1.0 : 0.1;
-    const targetOpacity = isDirectTarget ? 0.9 : isDependency ? 0.5 : 0.15;
+    const targetEmissive = isDirectTarget ? 1.5 : (isDependency ? 0.8 : 0.2);
+    const targetOpacity = isDirectTarget ? 0.9 : (isDependency ? 0.6 : 0.3);
     
     gsap.to(layerRef.current.scale, {
       x: targetScale,
@@ -169,7 +181,7 @@ function LayerNode({
       overwrite: "auto"
     });
     
-  }, [isDirectTarget, isDependency, isActive]);
+  }, [isDirectTarget, isDependency, isActive, isCompressed, index, data.yOffset]);
 
   const handleClick = (e: ThreeEvent<MouseEvent>) => {
     e.stopPropagation();
@@ -272,7 +284,7 @@ function EnergySpine({ activeLayerId, hoveredLayerId }: { activeLayerId?: string
 
 // --- Main Architecture Assembly ---
 
-export function ArchitectureNodes({ activeArchitectureLayerId }: { activeArchitectureLayerId?: string | null }) {
+export function ArchitectureNodes({ activeArchitectureLayerId, isCompressed }: { activeArchitectureLayerId?: string | null, isCompressed?: boolean }) {
   const rootRef = useRef<THREE.Group>(null);
   const originZ = -29;
   
@@ -301,6 +313,7 @@ export function ArchitectureNodes({ activeArchitectureLayerId }: { activeArchite
           index={index}
           activeLayerId={activeArchitectureLayerId} 
           hoveredLayerId={hoveredArchitectureLayerId}
+          isCompressed={isCompressed}
         />
       ))}
     </group>
