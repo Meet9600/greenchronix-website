@@ -66,11 +66,14 @@ function WorldOrchestrator() {
     cameraEngine.applyParallax(mouseX, mouseY);
   });
 
+  const fog = environmentEngine.getFog();
+  const particles = particleEngine.getMesh();
+
   return (
     <>
       <primitive object={lightingEngine.getLights()} />
-      {environmentEngine.getFog() && <primitive object={environmentEngine.getFog()} attach="fog" />}
-      {particleEngine.getMesh() && <primitive object={particleEngine.getMesh()} />}
+      {fog && <primitive object={fog!} attach="fog" />}
+      {particles && <primitive object={particles!} />}
     </>
   );
 }
