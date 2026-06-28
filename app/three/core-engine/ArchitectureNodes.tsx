@@ -2,7 +2,7 @@
 
 import React, { useRef, useState, useMemo, useEffect } from "react";
 import * as THREE from "three";
-import { useFrame } from "@react-three/fiber";
+import { useFrame, ThreeEvent } from "@react-three/fiber";
 import { Html, Box, Cylinder } from "@react-three/drei";
 import gsap from "gsap";
 import { ARCHITECTURE_LAYERS, COLORS } from "../../config";
@@ -171,7 +171,7 @@ function LayerNode({
     
   }, [isDirectTarget, isDependency, isActive]);
 
-  const handleClick = (e: any) => {
+  const handleClick = (e: ThreeEvent<MouseEvent>) => {
     e.stopPropagation();
     sceneManager.setArchitectureLayer(isActive ? null : data.id);
   };
@@ -180,8 +180,8 @@ function LayerNode({
     <group 
       position={[0, data.yOffset, 0]} 
       ref={layerRef}
-      onPointerOver={(e) => { e.stopPropagation(); setLocalHover(true); }}
-      onPointerOut={(e) => { e.stopPropagation(); setLocalHover(false); }}
+      onPointerOver={(e: ThreeEvent<PointerEvent>) => { e.stopPropagation(); setLocalHover(true); }}
+      onPointerOut={(e: ThreeEvent<PointerEvent>) => { e.stopPropagation(); setLocalHover(false); }}
       onClick={handleClick}
     >
       {/* Structural Glass Platform */}

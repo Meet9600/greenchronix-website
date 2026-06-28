@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { useThree, useFrame } from "@react-three/fiber";
 import { Html } from "@react-three/drei";
 import { DebugInfo } from "./types";
@@ -14,16 +14,16 @@ export function DebugOverlayRenderer() {
   const { gl } = useThree();
   const [debugInfo, setDebugInfo] = useState<DebugInfo | null>(null);
   
-  let frameCount = 0;
-  let lastTime = performance.now();
+  const frameCount = useRef(0);
+  const lastTime = useRef(performance.now());
 
   useFrame(() => {
     if (!FEATURE_FLAGS.ENABLE_DEBUG_GUI) return;
 
-    frameCount++;
+    frameCount.current++;
     const now = performance.now();
-    if (now - lastTime >= 500) { // Update roughly every 500ms
-      const fps = Math.round((frameCount * 1000) / (now - lastTime));
+    if (now - lastTime.current >= 500) { // Update roughly every 500ms
+      const fps = Math.round((frameCount.current * 1000) / (now - lastTime.current));
       
       setDebugInfo({
         fps,
@@ -35,8 +35,8 @@ export function DebugOverlayRenderer() {
         cameraPosition: cameraEngine.getPosition(),
       });
 
-      frameCount = 0;
-      lastTime = now;
+      frameCount.current = 0;
+      lastTime.current = now;
     }
   });
 

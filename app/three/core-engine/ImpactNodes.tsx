@@ -8,7 +8,6 @@ import gsap from "gsap";
 import { IMPACT_DOMAINS, COLORS } from "../../config";
 import { sceneManager } from "../SceneManager";
 import { particleEngine } from "../world-engine";
-import { SceneState } from "../../types";
 
 // --- Custom Architectures ---
 
@@ -52,7 +51,7 @@ function AIArchitecture({ color, isActive }: { color: string, isActive: boolean 
 function EnterpriseArchitecture({ color, isActive }: { color: string, isActive: boolean }) {
   const groupRef = useRef<THREE.Group>(null);
   
-  useFrame((state, delta) => {
+  useFrame((state) => {
     if (groupRef.current && isActive) {
       const time = state.clock.elapsedTime;
       groupRef.current.children.forEach((child, i) => {
@@ -91,7 +90,7 @@ function EnterpriseArchitecture({ color, isActive }: { color: string, isActive: 
 function DataArchitecture({ color, isActive }: { color: string, isActive: boolean }) {
   const groupRef = useRef<THREE.Group>(null);
   
-  useFrame((state, delta) => {
+  useFrame((state) => {
     if (groupRef.current && isActive) {
       const time = state.clock.elapsedTime;
       groupRef.current.rotation.z = time * 0.2;
@@ -139,7 +138,7 @@ function EnergyFlow({ start, end, color, active }: { start: THREE.Vector3, end: 
   const meshRef = useRef<THREE.InstancedMesh>(null);
   const count = 8;
   const dummy = new THREE.Object3D();
-  const offsets = useRef(Array.from({length: count}, () => Math.random())).current;
+  const [offsets] = useState(() => Array.from({length: count}, () => Math.random()));
   
   useFrame((state, delta) => {
     if (!meshRef.current || !active) {
