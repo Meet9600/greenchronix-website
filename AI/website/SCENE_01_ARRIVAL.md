@@ -1,231 +1,284 @@
-SCENE 01 — ARRIVAL
+# SCENE 01 — ARRIVAL
 
-Goal
+## Status
 
-Capture attention within the first 5 seconds.
+**Locked**
 
-Visitors should immediately understand that GreenChronix is not a typical software company.
+Version: 1.0
 
-⸻
+---
 
-Duration
+# Purpose
 
-8–10 seconds
+Scene 01 is the visitor's first impression of GreenChronix.
 
-⸻
+It is not intended to advertise services or explain technologies.
 
-Emotion
+Its purpose is to create curiosity, confidence, and calm by presenting GreenChronix as an engineering-first company that solves meaningful problems through intelligent systems.
 
-Curiosity
+The visitor should immediately understand that this is not a conventional software agency website.
 
-↓
+---
 
-Wonder
+# Narrative
 
-↓
+Everything begins in darkness.
 
-Trust
+Small ambient particles drift through space.
 
-⸻
+At the center of the scene, the Engineering Core slowly awakens.
 
-Visual
+The visitor is introduced to GreenChronix through a single statement:
 
-Background:
+> Built for Problems Worth Solving.
 
-Pure black (#050505)
+Nothing competes with this message.
 
-Subtle volumetric fog.
+The Engineering Core becomes the visual anchor that remains throughout the entire website experience.
 
-Tiny floating green particles.
+---
 
-Very slow movement.
+# Emotional Goal
 
-No visible UI initially.
+The visitor should feel:
 
-⸻
+* Curious
+* Calm
+* Confident
+* Interested
+* Drawn forward
 
-Camera
+Avoid excitement through excessive animation.
 
-Position:
+The atmosphere should resemble entering a modern engineering laboratory rather than watching a product advertisement.
 
-Far from the Engineering Core.
+---
 
-Movement:
+# Engineering Core State
 
-Very slow cinematic forward movement.
+State:
 
-No sudden motion.
+Dormant → Awakening
 
-No rotation.
+Characteristics:
 
-Only subtle parallax based on mouse movement.
+* Glass material
+* Emerald emissive wireframe
+* Internal glow
+* Slow rotation
+* Soft breathing animation
+* Central point light
+* Minimal movement
 
-⸻
+The Engineering Core should immediately establish itself as the permanent identity of the experience.
 
-Main 3D Object
+---
 
-Engineering Core
+# Camera
 
-Description:
+Starting Position
 
-A procedural geometric sphere built from interconnected nodes and glowing lines.
+* Centered on the Engineering Core
+* Slow cinematic framing
+* Slight mouse parallax
+* No aggressive movement
 
-Behavior:
+The camera should feel weighty and intentional.
 
-Initially dormant.
+---
 
-Gradually awakens.
+# World
 
-Small energy pulses travel through the network.
+Environment
 
-No repetitive looping.
+* Near-black background
+* Volumetric depth
+* Large empty negative space
+* Ambient floating particles
+* Minimal lighting
 
-The animation should feel alive.
+Nothing should distract from the Engineering Core.
 
-⸻
+---
 
-Lighting
+# HTML Layout
 
-Main
+Layout System
 
-Soft emerald glow.
+Uses the shared SceneLayout component.
 
-Secondary
+Desktop
 
-Very subtle blue rim light.
+* Left aligned
+* Approximately 40% width
+* Vertically centered
 
-Background
+Mobile
 
-Almost completely dark.
+* Positioned in the upper safe area
+* Engineering Core shifted downward through camera offset
+* No overlap with typography
 
-High contrast.
+---
 
-⸻
-
-Typography
+# Typography
 
 Headline
 
 Built for Problems Worth Solving.
 
-Font Weight
-
-700
-
-Alignment
-
-Center
-
-Max Width
-
-700px
-
-Fade in after the Engineering Core stabilizes.
-
-⸻
-
-Subheadline
+Supporting Text
 
 Engineering intelligent digital systems with clarity, precision, and long-term thinking.
 
-Appear 0.6 seconds after headline.
+Typography Rules
 
-⸻
+* Large
+* Minimal
+* Confident
+* Tight tracking
+* Balanced line wrapping
+* Strong hierarchy
 
-CTA
+---
 
-Primary
+# Primary Action
+
+Button
 
 Start the Journey
 
-Secondary
+Purpose
 
-View Our Work
+Encourages exploration rather than conversion.
 
-Appear last.
+No sales language.
 
-⸻
+No marketing pressure.
 
-Navigation
+---
 
-Initially hidden.
+# Motion Language
 
-Fade in after Scene 01 completes.
+Animation Principles
 
-⸻
+* Slow
+* Purposeful
+* Premium
+* Smooth
+* Calm
 
-Scroll Behavior
+Avoid
 
-The first scroll starts the transition into Scene 02.
+* Bounce
+* Elastic easing
+* Fast scaling
+* Sudden transitions
 
-No abrupt jump.
+GSAP controls all major animations.
 
-The camera continues moving naturally.
+---
 
-⸻
+# Performance
 
-Sound
+Adaptive Quality
 
-None.
+PerformanceManager controls:
 
-Future enhancement only.
+* Particle count
+* Lighting complexity
+* Material quality
+* Rendering quality
 
-⸻
+Reduced capability devices gracefully fall back while preserving the visual language.
 
-Accessibility
+---
 
-Respect prefers-reduced-motion.
+# Accessibility
 
-Skip heavy animation when enabled.
+Requirements
 
-Keyboard navigation fully supported.
+* Keyboard navigation
+* Visible focus states
+* Reduced Motion support
+* Responsive layout
+* High contrast typography
 
-⸻
+---
 
-Mobile
+# Transition to Scene 02
 
-Replace heavy 3D with optimized animation.
+Scene 01 should not disappear.
 
-Maintain identical storytelling.
+Instead, it evolves.
 
-⸻
+As scrolling begins:
 
-Performance Budget
+* Camera slowly approaches the Engineering Core.
+* The Core awakens further.
+* Scene 01 typography fades away.
+* Scene 02 begins emerging naturally.
 
-Desktop
+The visitor should never perceive a hard scene change.
 
-60 FPS
+---
 
-Mobile
+# Design Principles
 
-45–60 FPS
+Scene 01 establishes the visual identity used throughout the website.
 
-Lighthouse
+Every later scene inherits:
 
-95+
+* Material language
+* Lighting language
+* Motion language
+* Camera philosophy
+* Typography rhythm
 
-⸻
+Nothing introduced later should contradict the foundation established here.
 
-Deliverables
+---
 
-Hero
+# Acceptance Criteria
 
-Navigation
+✓ Engineering Core immediately captures attention.
 
-Engineering Core
+✓ Typography is always readable.
 
-Particles
+✓ Composition remains balanced on desktop and mobile.
 
-Headline
+✓ Performance remains within adaptive budgets.
 
-Subheadline
+✓ Camera movement feels cinematic.
 
-CTA
+✓ Transition into Scene 02 feels continuous.
 
-Transition to Scene 02
+✓ The visitor immediately understands that GreenChronix is an engineering company rather than a traditional software agency.
 
-⸻
+---
 
-Status
+# Future Polish Ideas
 
-Approved v1.0
+* Richer volumetric lighting.
+* Improved internal refraction of the Engineering Core.
+* Enhanced particle depth.
+* More realistic glass material.
+* Subtle audio ambience (optional, disabled by default).
+
+---
+
+# Dependencies
+
+Uses
+
+* Experience
+* SceneLayout
+* Engineering Core
+* Camera Engine
+* Lighting Engine
+* Particle Engine
+* Performance Manager
+* Scene Manager
+* World Engine
+
+No scene-specific rendering systems should be introduced.

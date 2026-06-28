@@ -11,6 +11,7 @@ import { NetworkNodes } from "./NetworkNodes";
 import { DomainNodes } from "./DomainNodes";
 import { PipelineNodes } from "./PipelineNodes";
 import { ImpactNodes } from "./ImpactNodes";
+import { ArchitectureNodes } from "./ArchitectureNodes";
 import { ENGINEERING_DOMAINS } from "../../config";
 
 export function EngineeringCore({ sceneState }: CoreEngineProps) {
@@ -60,24 +61,29 @@ export function EngineeringCore({ sceneState }: CoreEngineProps) {
   });
 
   return (
-    <group>
-      <group ref={groupRef}>
-        <mesh geometry={innerCoreGeo} material={innerGlassMaterial} />
-        <lineSegments geometry={edgesGeo} material={outerEdgeMaterial} />
-        <pointLight ref={pointLightRef} color="#00E38C" intensity={0.4} distance={8} decay={2} />
-        
-        <group ref={networkRef} scale={0.001}>
-          <NetworkNodes />
+    <>
+      <group>
+        <group ref={groupRef}>
+          <mesh geometry={innerCoreGeo} material={innerGlassMaterial} />
+          <lineSegments geometry={edgesGeo} material={outerEdgeMaterial} />
+          <pointLight ref={pointLightRef} color="#00E38C" intensity={0.4} distance={8} decay={2} />
+          
+          <group ref={networkRef} scale={0.001}>
+            <NetworkNodes />
+          </group>
         </group>
-      </group>
 
-      <DomainNodes sceneState={sceneState} />
-      {sceneState.currentSceneId === 3 && (
-        <PipelineNodes activePipelineStageId={sceneState.activePipelineStageId} />
-      )}
-      {sceneState.currentSceneId === 4 && (
-        <ImpactNodes activeImpactDomainId={sceneState.activeImpactDomainId} />
-      )}
-    </group>
+        <DomainNodes sceneState={sceneState} />
+        {sceneState.currentSceneId >= 3 && (
+          <PipelineNodes activePipelineStageId={sceneState.activePipelineStageId} />
+        )}
+        {sceneState.currentSceneId >= 4 && (
+          <ImpactNodes activeImpactDomainId={sceneState.activeImpactDomainId} />
+        )}
+        {sceneState.currentSceneId >= 5 && (
+          <ArchitectureNodes activeArchitectureLayerId={sceneState.activeArchitectureLayerId} />
+        )}
+      </group>
+    </>
   );
 }

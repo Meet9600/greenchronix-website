@@ -1,257 +1,294 @@
-SCENE 04 — ENGINEERING PIPELINE
+# SCENE 04 — ENGINEERING PIPELINE
+
+## Status
+
+**Locked**
 
 Version: 1.0
 
-Status: Approved
+---
 
-⸻
+# Purpose
 
-Goal
+Scene 04 visualizes the GreenChronix engineering process.
 
-Demonstrate how GreenChronix transforms ideas into reliable production systems.
+Rather than presenting a traditional timeline or workflow diagram, this scene transforms the Engineering Core into a living production pipeline where engineering energy flows through structured stages.
 
-Visitors should understand that every project follows a disciplined engineering process rather than ad-hoc development.
+The visitor should understand that GreenChronix follows a disciplined engineering methodology instead of an ad-hoc development process.
 
-⸻
+---
 
-Duration
+# Narrative
 
-18–22 seconds
+The Engineering Universe gradually contracts.
 
-⸻
+All Engineering Domains redirect their energy back toward the Engineering Core.
 
-Emotion
+The Core reshapes itself into the Engineering Pipeline.
 
-Confidence
+Energy now flows through sequential engineering stages before reaching real-world outcomes.
 
-↓
+---
 
-Trust
+# Emotional Goal
 
-↓
+The visitor should feel:
 
-Professionalism
+* Reliability
+* Structure
+* Confidence
+* Precision
+* Momentum
 
-⸻
+The engineering process should appear calm, deliberate, and repeatable.
 
-Story
+---
 
-The Engineering Core expands into a flowing production pipeline.
+# Engineering Core State
 
-Energy travels through each stage, showing that every project moves through a structured lifecycle.
+State
 
-Each completed stage illuminates before passing energy to the next.
+Engineering Universe → Engineering Pipeline
 
-⸻
+Characteristics
+
+* Core remains the origin of all energy.
+* Pipeline extends forward from the Core.
+* Energy pulses travel continuously.
+* Every stage receives energy before passing it onward.
+
+The Core should never disappear.
+
+---
+
+# Engineering Pipeline
+
+The pipeline consists of six engineering stages.
+
+## 01 — Discover
+
+Understand the problem, business goals, users, and constraints.
+
+---
+
+## 02 — Architect
+
+Design scalable system architecture and engineering strategy.
+
+---
+
+## 03 — Engineer
+
+Implement robust, maintainable, production-quality systems.
+
+---
+
+## 04 — Validate
+
+Test reliability, security, performance, and correctness.
+
+---
+
+## 05 — Deploy
+
+Release stable systems through controlled deployment processes.
+
+---
+
+## 06 — Evolve
+
+Continuously improve, monitor, and expand the system over time.
+
+---
+
+# Camera
+
+Movement
+
+* Travel forward along the pipeline.
+* Follow the flow of engineering energy.
+* Pause subtly during interactions.
+* Resume smoothly when interaction ends.
+
+The camera should feel as though it is travelling through a production system.
+
+---
+
+# World
+
+Environment
+
+* Pipeline becomes the dominant visual structure.
+* Energy lines remain continuously active.
+* Particles reinforce forward momentum.
+* Background remains minimal.
+
+Nothing should distract from the engineering process.
+
+---
+
+# HTML Layout
+
+Uses the shared SceneLayout.
+
+Desktop
+
+* Left aligned.
+* Stable safe content zone.
+* Consistent spacing.
+
+Mobile
+
+* Upper safe area.
+* Pipeline framed below the text.
+
+Maintain consistency with all previous scenes.
+
+---
+
+# Typography
 
 Headline
 
 Engineering With Purpose.
 
-⸻
-
 Supporting Text
 
-Great software is not built by chance.
+Every solution passes through a disciplined engineering process designed for reliability, scalability, and long-term success.
 
-Every successful system is the result of structured thinking, disciplined execution, continuous validation, and long-term evolution.
+Typography Rules
 
-⸻
+* Minimal
+* Confident
+* Balanced
+* Consistent with previous scenes
 
-Pipeline
+---
 
-Stage 01
-
-Discover
-
-Icon
-
-Magnifying Glass
-
-Description
-
-Understand the business problem, users, constraints, and success metrics before proposing solutions.
-
-⸻
-
-Stage 02
-
-Architect
-
-Icon
-
-Blueprint
-
-Description
-
-Design scalable, secure, and maintainable system architecture.
-
-⸻
-
-Stage 03
-
-Prototype
-
-Icon
-
-Cube
-
-Description
-
-Validate concepts rapidly before committing to full implementation.
-
-⸻
-
-Stage 04
-
-Engineer
-
-Icon
-
-Code
-
-Description
-
-Develop modular, production-ready software using modern engineering practices.
-
-⸻
-
-Stage 05
-
-Validate
-
-Icon
-
-Shield Check
-
-Description
-
-Performance testing, accessibility, security, quality assurance, and cross-device verification.
-
-⸻
-
-Stage 06
-
-Deploy
-
-Icon
-
-Rocket
-
-Description
-
-Reliable deployment with monitoring, observability, rollback strategy, and automation.
-
-⸻
-
-Stage 07
-
-Evolve
-
-Icon
-
-Infinity
-
-Description
-
-Continuous improvement driven by real-world feedback and measurable outcomes.
-
-⸻
-
-Interaction
+# Interaction
 
 Hover
 
-Highlight stage.
-
-Display detailed explanation.
+* Highlight selected stage.
+* Increase emissive intensity.
+* Pause forward camera movement.
+* Reveal concise engineering explanation.
 
 Click
 
-Expand stage with engineering checklist.
+* Expand selected stage slightly.
+* Reveal implementation details within the 3D world.
+* Preserve the continuous pipeline.
 
-Animated energy continues flowing through the pipeline.
+Keyboard
 
-⸻
+* Tab through stages.
+* Enter activates.
+* Escape returns to overview.
 
-Camera
+---
 
-Slow side movement following the pipeline.
+# Motion Language
 
-Minimal rotation.
+Maintain:
 
-Maintain focus on the active stage.
+* Calm
+* Purposeful
+* Continuous
+* Premium
 
-⸻
+Energy pulses should communicate progress without becoming distracting.
 
-Motion
+---
 
-Energy pulses travel through every completed stage.
+# Performance
 
-Smooth transitions.
+Reuse all existing systems.
 
-No exaggerated movement.
+Adaptive quality controls:
 
-Everything should feel precise and engineered.
+* Energy effects
+* Particle density
+* Lighting complexity
+* Material fidelity
 
-⸻
+No duplicate rendering pipelines.
 
-CTA
+---
 
-Continue to Our Work
+# Accessibility
 
-⸻
+Requirements
 
-Mobile
+* Keyboard navigation
+* Focus indicators
+* Reduced Motion support
+* Responsive layout
+* Screen reader compatibility
 
-Vertical timeline.
+Every stage must be accessible without a mouse.
 
-Tap expands each stage.
+---
 
-Optimized transitions.
+# Transition to Scene 05
 
-⸻
+As energy reaches the final stage (Evolve):
 
-Accessibility
+* The pipeline branches organically.
+* Energy flows into three Engineering Impact domains.
+* The Engineering Core remains visible in the background.
+* The visitor sees engineering transformed into real-world outcomes.
 
-Keyboard navigation.
+The transition should feel inevitable rather than dramatic.
 
-Clear focus indicators.
+---
 
-Reduced motion replaces flowing animation with progressive highlighting.
+# Design Principles
 
-⸻
+The Engineering Pipeline is the bridge between capability and impact.
 
-Performance Budget
+Every visual decision should reinforce that GreenChronix delivers engineering through a repeatable, structured methodology.
 
-GPU usage
+---
 
-Medium.
+# Acceptance Criteria
 
-Maintain 60 FPS.
+✓ Pipeline stages appear sequentially.
 
-Lazy load heavy visual assets.
+✓ Energy flow remains continuous.
 
-⸻
+✓ Camera movement feels natural.
 
-Deliverables
+✓ Stage interactions are smooth.
 
-Interactive Engineering Pipeline
+✓ Core remains visible.
 
-Animated Energy Flow
+✓ Transition into Scene 05 feels organic.
 
-Expandable Stage Details
+---
 
-Transition to Scene 05
+# Future Polish Ideas
 
-⸻
+* Richer procedural energy pulses.
+* More expressive stage geometry.
+* Dynamic energy intensity.
+* Enhanced particle flow.
 
-Success Criteria
+---
 
-Visitors should leave this scene believing that GreenChronix follows a mature engineering process capable of delivering reliable, long-term solutions.
+# Dependencies
 
-⸻
+Uses
 
-Status
+* Experience
+* SceneLayout
+* Engineering Core
+* Pipeline Nodes
+* Scene Manager
+* Camera Engine
+* Particle Engine
+* Lighting Engine
+* World Engine
+* Performance Manager
 
-Approved v1.0
+No scene-specific rendering engine should be introduced.

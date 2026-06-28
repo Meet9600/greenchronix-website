@@ -8,7 +8,7 @@ export interface PerformanceBudget {
   textureResolution: "high" | "low";
 }
 
-export type SceneId = 0 | 1 | 2 | 3 | 4;
+export type SceneId = 0 | 1 | 2 | 3 | 4 | 5;
 
 export interface SceneState {
   currentSceneId: SceneId;
@@ -17,4 +17,6 @@ export interface SceneState {
   activePipelineStageId?: string | null;
   activeImpactDomainId?: string | null;
   hoveredImpactDomainId?: string | null;
+  activeArchitectureLayerId?: string | null;
+  hoveredArchitectureLayerId?: string | null;
 }

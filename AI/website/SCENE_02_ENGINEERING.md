@@ -1,201 +1,280 @@
-SCENE 02 — ENGINEERING PHILOSOPHY
+# SCENE 02 — ENGINEERING PHILOSOPHY
 
-Goal
+## Status
 
-Show visitors how GreenChronix thinks before showing what GreenChronix builds.
+**Locked**
 
-Visitors should begin trusting our engineering process.
+Version: 1.0
 
-⸻
+---
 
-Duration
+# Purpose
 
-12–15 seconds
+Scene 02 introduces the engineering philosophy behind GreenChronix.
 
-⸻
+Rather than listing company values, this scene visualizes the principles that guide every decision, architecture, and solution. The visitor should feel they are moving deeper into the Engineering Core, discovering the mindset that powers every project.
 
-Emotion
+---
 
-Curiosity
+# Narrative
 
-↓
+The camera slowly approaches and passes through the Engineering Core.
 
-Understanding
+As the Core expands, it reveals a living network of engineering principles.
 
-↓
+Each principle is not a separate feature but a connected part of a single engineering philosophy.
 
-Confidence
+The visitor should feel they are exploring the internal logic of the system rather than reading marketing content.
 
-⸻
+---
 
-Transition
+# Emotional Goal
 
-The camera passes through the Engineering Core created in Scene 01.
+The visitor should feel:
 
-The internal structure expands into a living network.
+* Trust
+* Clarity
+* Intelligence
+* Depth
+* Confidence
 
-Nodes illuminate as the visitor scrolls.
+This scene should reinforce that GreenChronix is built on thoughtful engineering, not trends.
 
-⸻
+---
+
+# Engineering Core State
+
+State:
+
+Awakening → Living Network
+
+Characteristics:
+
+* Core expands slightly.
+* Connection lines emerge organically.
+* Four engineering principles orbit the Core.
+* Core brightness increases subtly.
+* Internal energy becomes more active while remaining calm.
+
+The Core remains the central anchor of the scene.
+
+---
+
+# Engineering Principles
+
+The network consists of four interconnected principles:
+
+## Systems Thinking
+
+Design complete systems instead of isolated features.
+
+---
+
+## Engineering Excellence
+
+Prioritize reliability, maintainability, and quality.
+
+---
+
+## Responsible AI
+
+Use artificial intelligence intentionally, ethically, and transparently.
+
+---
+
+## Long-Term Thinking
+
+Build solutions that remain valuable and maintainable over time.
+
+---
+
+# Camera
+
+Movement
+
+* Slow forward movement.
+* Slight elevation.
+* Smooth interpolation.
+* No abrupt cuts.
+
+The camera should feel like it is entering the Engineering Core.
+
+---
+
+# World
+
+Environment
+
+* Existing particles remain.
+* Lighting becomes slightly brighter.
+* Volumetric depth increases.
+* The surrounding space remains minimal.
+
+Nothing new should distract from the philosophy network.
+
+---
+
+# HTML Layout
+
+Uses the shared SceneLayout.
+
+Desktop
+
+* Left aligned.
+* Safe content zone.
+* Consistent width.
+
+Mobile
+
+* Typography occupies the upper safe area.
+* Camera offset prevents overlap with the Engineering Core.
+
+Layout must remain identical in rhythm to Scene 01.
+
+---
+
+# Typography
 
 Headline
 
 Engineering Clarity From Complexity.
 
-⸻
-
 Supporting Text
 
-We engineer intelligent digital systems by transforming complex challenges into reliable, scalable, and elegant solutions.
+We build intelligent digital systems designed for precision, performance, and long-term stability.
 
-Our focus is not on trends.
+Typography Rules
 
-Our focus is on building systems that endure.
+* Consistent with Scene 01.
+* Tight tracking.
+* Balanced wrapping.
+* Clear hierarchy.
 
-⸻
+---
 
-Interactive Principles
+# Interaction
 
-Four engineering principles appear as connected nodes.
+Hover
 
-Node 1
+When hovering a principle:
 
-Systems Thinking
+* Increase node glow.
+* Highlight connecting lines.
+* Reveal concise explanatory text.
+* Slightly increase emissive intensity.
 
-Description
+Click
 
-We build interconnected systems instead of isolated features.
+No permanent selection.
 
-⸻
+Scene 02 focuses on exploration rather than deep interaction.
 
-Node 2
+---
 
-Engineering Excellence
+# Motion Language
 
-Description
+All motion remains:
 
-Every implementation prioritizes quality, maintainability, and performance.
+* Calm
+* Intentional
+* Premium
+* Predictable
 
-⸻
+Avoid sudden scale changes or exaggerated animation.
 
-Node 3
+GSAP controls all transitions.
 
-Responsible AI
+---
 
-Description
+# Performance
 
-Artificial intelligence should amplify human capability rather than replace thoughtful decision making.
+Reuse existing systems.
 
-⸻
+Adaptive quality controls:
 
-Node 4
+* Network complexity
+* Particle density
+* Lighting quality
+* Material fidelity
 
-Long-Term Thinking
+No duplicate rendering systems.
 
-Description
+---
 
-Technology evolves.
+# Accessibility
 
-Engineering principles endure.
+Requirements
 
-⸻
+* Keyboard navigation
+* Visible focus states
+* Reduced Motion support
+* Responsive layout
+* High contrast text
 
-Interaction
+Every engineering principle must be reachable without a mouse.
 
-Hovering over a node:
+---
 
-Expand slightly.
+# Transition to Scene 03
 
-Glow softly.
+As scrolling continues:
 
-Display additional explanation.
+* The engineering principle network expands outward.
+* Additional nodes emerge.
+* The camera slowly pulls back.
+* The network evolves into the Engineering Universe.
 
-Connected lines animate subtly.
+Scene 03 should feel like the natural expansion of Scene 02 rather than a replacement.
 
-⸻
+---
 
-Camera
+# Design Principles
 
-Continue slow forward movement.
+Scene 02 establishes the intellectual foundation of GreenChronix.
 
-Slight vertical drift.
+Every capability shown later should be understood as a consequence of these engineering principles.
 
-No sudden transitions.
+Nothing in future scenes should contradict the philosophy introduced here.
 
-⸻
+---
 
-Lighting
+# Acceptance Criteria
 
-The Engineering Core becomes brighter.
+✓ Engineering philosophy is understandable without excessive text.
 
-Connections pulse gently.
+✓ The Engineering Core remains dominant.
 
-Background remains dark.
+✓ Hover interactions are smooth and informative.
 
-⸻
+✓ Camera movement feels continuous.
 
-Motion
+✓ Typography never overlaps the 3D world.
 
-Smooth fades.
+✓ Transition into Scene 03 feels seamless.
 
-No bouncing.
+---
 
-No exaggerated easing.
+# Future Polish Ideas
 
-Everything should feel engineered rather than playful.
+* Richer connection animations.
+* Subtle energy propagation across network links.
+* More sophisticated node geometry.
+* Adaptive lighting based on active principle.
 
-⸻
+---
 
-CTA
+# Dependencies
 
-Continue Exploring
+Uses
 
-Scroll indicator only.
+* Experience
+* SceneLayout
+* Engineering Core
+* Scene Manager
+* Camera Engine
+* Particle Engine
+* Lighting Engine
+* World Engine
+* Performance Manager
 
-No buttons yet.
-
-⸻
-
-Mobile
-
-Display the same principles in stacked cards.
-
-Retain simplified network animation.
-
-⸻
-
-Accessibility
-
-Keyboard focus available for every node.
-
-Reduced motion mode replaces animations with fades.
-
-⸻
-
-Performance Budget
-
-Maximum GPU usage:
-
-Medium.
-
-Maintain 60 FPS.
-
-⸻
-
-Deliverables
-
-Engineering Core Expansion
-
-Interactive Principle Nodes
-
-Headline
-
-Supporting Text
-
-Scroll Transition to Scene 03
-
-⸻
-
-Status
-
-Approved v1.0
+No scene-specific rendering engine should be introduced.

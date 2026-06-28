@@ -105,7 +105,13 @@ export const SCENE_DEFINITIONS = [
   {
     id: 4,
     name: "IMPACT",
-    camera: { target: [0, 0, 0] as [number, number, number] }, // Handled dynamically in CameraEngine
+    camera: { target: [0, 0, 0] as [number, number, number] }, 
+    core: { scale: 1.0, rotationY: Math.PI },
+  },
+  {
+    id: 5,
+    name: "ARCHITECTURE",
+    camera: { target: [0, 0, 0] as [number, number, number] }, // Handled dynamically
     core: { scale: 1.0, rotationY: Math.PI },
   }
 ];
@@ -236,6 +242,65 @@ export const IMPACT_DOMAINS = [
     pos: [3.5, 2.5, -35] as [number, number, number],
     color: "#A855F7",
     geometry: "octahedron",
+  }
+];
+
+export const ARCHITECTURE_LAYERS = [
+  {
+    id: "infrastructure",
+    title: "Infrastructure",
+    desc: "The secure, scalable foundation powering all higher-order engineering systems.",
+    technologies: ["Kubernetes", "Docker", "Linux", "Networking"],
+    yOffset: 0, 
+    color: "#3B82F6", // Blue infrastructure accent
+  },
+  {
+    id: "cloud-platform",
+    title: "Cloud Platform",
+    desc: "Managed cloud environments delivering high availability and elastic compute.",
+    technologies: ["AWS", "Azure", "GCP", "Serverless"],
+    yOffset: 4,
+    color: "#3B82F6",
+  },
+  {
+    id: "data-platform",
+    title: "Data Platform",
+    desc: "High-throughput pipelines and real-time streaming architectures.",
+    technologies: ["PostgreSQL", "Kafka", "Redis", "Object Storage"],
+    yOffset: 8,
+    color: "#00E38C", // Emerald dominant
+  },
+  {
+    id: "intelligence",
+    title: "Intelligence Layer",
+    desc: "Advanced neural networks, agents, and predictive models.",
+    technologies: ["LLMs", "AI Agents", "ML Models", "Vector Databases"],
+    yOffset: 12,
+    color: "#A855F7", // Purple AI accent
+  },
+  {
+    id: "business-apps",
+    title: "Business Applications",
+    desc: "Custom-engineered systems solving core operational challenges.",
+    technologies: ["ERP", "CRM", "Internal Systems", "APIs"],
+    yOffset: 16,
+    color: "#00E38C",
+  },
+  {
+    id: "experience",
+    title: "Experience Layer",
+    desc: "Performant, accessible, and cinematic user interfaces.",
+    technologies: ["Web", "Mobile", "Dashboards", "Portals"],
+    yOffset: 20,
+    color: "#00E38C",
+  },
+  {
+    id: "users",
+    title: "Users",
+    desc: "The ultimate beneficiaries of disciplined engineering.",
+    technologies: ["Customers", "Employees", "Partners", "Stakeholders"],
+    yOffset: 24,
+    color: "#00E38C",
   }
 ];
 

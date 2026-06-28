@@ -1,477 +1,297 @@
-GREENCHRONIX VISUAL BIBLE
+# GreenChronix Visual Bible
 
 Version: 1.0
 
-Status: Production Draft
+Status: Active
 
-⸻
+---
 
-Philosophy
+# Philosophy
 
-GreenChronix is not futuristic.
+GreenChronix does not communicate through decoration.
 
-GreenChronix is timeless.
+It communicates through engineering.
 
-We never design to impress.
+Every visual decision should reinforce intelligence, precision, and long-term thinking.
 
-We design to inspire confidence.
+The experience should feel timeless rather than trendy.
 
-Our interfaces should feel engineered rather than decorated.
+---
 
-Visitors should experience calm precision.
+# Brand Personality
 
-⸻
+GreenChronix is:
 
-Design Keywords
+* Intelligent
+* Calm
+* Confident
+* Precise
+* Minimal
+* Modern
+* Engineering-first
 
-Precision
+GreenChronix is not:
 
-Confidence
+* Loud
+* Flashy
+* Playful
+* Over-animated
+* Marketing-driven
+* Futuristic for the sake of appearance
 
-Engineering
+---
 
-Intelligence
+# Visual Identity
 
-Sophistication
+The website should resemble:
 
-Clarity
+* A premium engineering laboratory.
+* A modern architecture studio.
+* A scientific visualization.
+* A living engineering system.
 
-Depth
+Avoid looking like:
 
-Elegance
+* A startup landing page.
+* A SaaS template.
+* A crypto website.
+* A gaming interface.
+* A dashboard.
 
-Calm
+---
+
+# Color System
+
+Primary Background
+
+`#050505`
+
+Primary Accent
+
+Emerald
 
 Purpose
 
-⸻
-
-Design References
-
-Study the principles behind:
-
-• Apple
-
-• Vercel
-
-• Stripe
-
-• Linear
-
-• Nothing
-
-• Porsche
-
-Never copy layouts.
-
-Learn why they work.
-
-⸻
-
-Visual Language
-
-Minimal.
-
-Dark.
-
-Premium.
-
-Breathing.
-
-Mathematical.
-
-Architectural.
-
-Purposeful.
-
-⸻
-
-Background
-
-Primary
-
-#050505
-
-Secondary
-
-#0B0B0B
-
-Surface
-
-#111111
-
-Elevated Surface
-
-#171717
-
-⸻
+Represents intelligence, energy, and engineering.
 
 Accent Colors
 
-Primary Emerald
+Blue
 
-#00E38C
+Used only for infrastructure and cloud concepts.
 
-Soft Emerald
+Purple
 
-#45F5B2
+Used only for AI or advanced intelligence.
 
-Deep Emerald
+White
 
-#00A86B
+Used for typography and focus.
 
-Highlight Blue
+Accent colors should never overpower emerald.
 
-#4DA3FF
+---
 
-Warning
+# Material Language
 
-#F5A524
+Every object follows the same material philosophy.
 
-Danger
+Primary Materials
 
-#EF4444
+* Glass
+* Wireframe
+* Emissive edges
+* Transparent layers
 
-⸻
+Avoid:
 
-Typography
+* Plastic
+* Metallic chrome
+* Cartoon materials
+* Heavy textures
 
-Primary
+---
 
-Geist
+# Lighting
 
-Fallback
+Lighting should feel architectural.
 
-Inter
+Characteristics
 
-Headlines
+* High contrast
+* Soft shadows
+* Emerald key light
+* Blue rim light
+* Internal glow
 
-Bold
+Avoid:
 
-Large
+* Flashing lights
+* Rainbow colors
+* Overexposed scenes
 
-Confident
+---
 
-Body
+# Typography
 
-Readable
+Typography communicates confidence.
 
-Open
+Rules
 
-Generous spacing
+* Large headlines
+* Tight tracking
+* Strong hierarchy
+* Minimal copy
+* Left alignment
+* Balanced wrapping
 
-Never use decorative fonts.
+Typography should never compete with the 3D world.
 
-⸻
+---
 
-Border Radius
+# Motion
 
-Buttons
+Motion should always feel:
 
-16px
+* Calm
+* Deliberate
+* Continuous
+* Smooth
+* Premium
 
-Cards
+Animation exists to support the story.
 
-24px
+Never animate simply because something can move.
 
-Panels
+---
 
-32px
+# Camera
 
-Pills
+The camera behaves like a cinematographer.
 
-999px
+It explores.
 
-⸻
+It observes.
 
-Glass
+It reveals.
 
-Very subtle.
+The camera never performs unnecessary tricks.
 
-Low opacity.
+Avoid:
 
-Never excessive blur.
+* Fast rotations
+* Dramatic spins
+* Sudden zooms
+* Random movement
 
-Glass should enhance hierarchy.
+---
 
-Not become decoration.
+# Engineering Core
 
-⸻
+The Engineering Core is sacred.
 
-Shadows
+Rules
 
-Soft.
+* Present in every scene.
+* Never completely disappears.
+* Evolves naturally.
+* Remains visually dominant.
+* Represents the heart of GreenChronix.
 
-Large blur.
+Every scene must maintain a visual relationship with the Core.
 
-Low opacity.
+---
 
-Never harsh.
+# Layout
 
-⸻
-
-Motion Philosophy
-
-Motion explains.
-
-Motion never distracts.
-
-Everything accelerates naturally.
-
-Everything decelerates gently.
-
-No bouncing.
-
-No playful motion.
-
-Motion should feel engineered.
-
-⸻
-
-Animation Timing
-
-Hover
-
-180ms
-
-Buttons
-
-220ms
-
-Cards
-
-300ms
-
-Section reveals
-
-500ms
-
-Large transitions
-
-900ms
-
-Scene transitions
-
-1200ms
-
-⸻
-
-Easing
-
-Primary
-
-easeOutCubic
-
-Secondary
-
-easeInOutCubic
-
-Never use bounce.
-
-Never use elastic.
-
-⸻
-
-Cursor
-
-Small.
-
-Minimal.
-
-Smooth interpolation.
-
-Optional magnetic effect.
-
-Never distracting.
-
-⸻
-
-Particles
-
-Small.
-
-Sparse.
-
-Purposeful.
-
-Maximum desktop
-
-1200
-
-Maximum mobile
-
-250
-
-Particles should support storytelling.
-
-Never become visual noise.
-
-⸻
-
-Engineering Core
-
-Geometry
-
-Procedural Icosahedron
-
-Material
-
-Dark Glass
-
-Edges
-
-Emerald Emissive
-
-Animation
-
-Breathing
-
-Pulse
-
-Energy Flow
-
-Particle Attraction
-
-The Engineering Core is the heart of the website.
-
-Every scene references it.
-
-⸻
-
-Lighting
-
-Dark environment.
-
-Soft emerald key light.
-
-Subtle blue rim light.
-
-Low bloom.
-
-High contrast.
-
-Premium atmosphere.
-
-⸻
-
-Camera
-
-Slow.
-
-Intentional.
-
-Never abrupt.
-
-Very small mouse parallax.
-
-Camera should feel cinematic.
-
-Not game-like.
-
-⸻
-
-Scroll
-
-Scrolling moves the camera.
-
-Not just the page.
-
-Every scroll should reveal something meaningful.
-
-⸻
-
-Buttons
-
-Rounded.
-
-Minimal.
-
-Strong typography.
-
-Confident hover.
-
-No flashy gradients.
-
-⸻
-
-Cards
-
-Large spacing.
-
-Generous padding.
-
-Soft elevation.
-
-Clean hierarchy.
-
-⸻
-
-Icons
-
-Lucide only.
-
-Consistent stroke.
-
-Simple.
-
-Minimal.
-
-⸻
-
-Performance
+Use the shared SceneLayout.
 
 Desktop
 
-60 FPS
+* Text on the left.
+* 3D composition on the right.
 
 Mobile
 
-45–60 FPS
+* Text in the upper safe zone.
+* 3D content below.
 
-Lighthouse
+Spacing remains consistent across every scene.
 
-95+
+---
 
-⸻
+# Negative Space
 
-Accessibility
+Empty space is intentional.
 
-WCAG AA minimum.
+Do not fill space simply because it exists.
 
-Reduced motion support.
+Negative space communicates confidence.
 
-Keyboard navigation.
+---
 
-High contrast.
+# Interaction
 
-Semantic HTML.
+Hover
 
-⸻
+Subtle.
 
-Definition of Premium
+Purposeful.
 
-Premium is not achieved through complexity.
+Reward curiosity.
 
-Premium is achieved through restraint.
+Click
 
-Every element should justify its existence.
+Reveal deeper engineering detail.
 
-⸻
+Never overwhelm the visitor.
 
-Final Principle
+---
 
-If removing an animation improves clarity,
+# Accessibility
 
-remove it.
+Beautiful experiences must remain usable.
 
-If removing an element improves focus,
+Requirements
 
-remove it.
+* Keyboard support.
+* Visible focus indicators.
+* Reduced Motion mode.
+* Responsive layouts.
+* High contrast.
 
-Simplicity is a competitive advantage.
+Accessibility is part of premium design.
 
-⸻
+---
 
-Status
+# Performance
 
-Approved v1.0
+Performance is part of aesthetics.
+
+A smooth experience is more valuable than excessive visual complexity.
+
+The adaptive rendering system should always preserve responsiveness.
+
+---
+
+# Things We Never Do
+
+* Logo walls
+* Testimonial sliders
+* Animated counters
+* Excessive gradients
+* Random particles
+* Decorative motion
+* Stock photography
+* Visual clutter
+
+Every visual element must contribute to the engineering narrative.
+
+---
+
+# Final Principle
+
+The visitor should remember **how the website felt**, not individual animations.
+
+If every scene communicates intelligence, clarity, and engineering discipline, then the visual language has succeeded.
+

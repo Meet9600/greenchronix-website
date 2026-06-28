@@ -1,61 +1,100 @@
 # GreenChronix Polish Backlog
 
-## Visual
+Version: 1.0
 
-* Improve Engineering Core shader
-* Increase scene depth
-* Refine glass materials
-* Improve volumetric atmosphere
-* Enhance particle layering
+Status: Active
 
 ---
 
-## Motion
+# Purpose
 
-* Refine easing curves
-* Improve camera transitions
-* Reduce motion repetition
-* Add subtle idle animations
+This document records improvements that enhance quality without blocking progress.
 
----
-
-## UI
-
-* Improve navigation
-* Refine button interactions
-* Improve typography spacing
-* Review mobile layouts
+Items here are optional refinements and should not delay implementation of future scenes.
 
 ---
 
-## Accessibility
+# Engineering Core
 
-* Additional keyboard shortcuts
-* Screen reader improvements
-* Focus state refinements
-
----
-
-## Performance
-
-* Optimize geometry
-* Reduce draw calls
-* Improve asset loading
-* Review bundle size
+* Improve glass refraction.
+* Enhance internal glow.
+* Add richer procedural surface detail.
 
 ---
 
-## Future Ideas
+# Camera
 
-* Audio ambience (optional)
-* Interactive background details
-* Procedural shader improvements
-* Dynamic environmental effects
+* Refine cinematic easing.
+* Improve mobile framing.
+* Fine-tune parallax sensitivity.
 
 ---
 
-## Notes
+# Particles
 
-Only move items from this backlog into implementation during dedicated polish sprints.
+* Increase depth variation.
+* Improve adaptive distribution.
+* Add subtle energy trails where appropriate.
 
-Do not interrupt feature development to complete backlog items unless they affect usability, accessibility, or correctness.
+---
+
+# Scene 03
+
+* Richer idle animations for Engineering Domains.
+* More expressive connection lines.
+* Enhanced hover transitions.
+
+---
+
+# Scene 04
+
+* More dynamic energy pulses.
+* Richer procedural pipeline geometry.
+* Improved stage transitions.
+
+---
+
+# Scene 05
+
+* Continuous energy pulses along branching paths.
+* More distinctive behavior for each Engineering Impact domain.
+* Richer architecture visualizations.
+* More organic particle attraction.
+
+---
+
+# Scene 06
+
+(To be updated after implementation.)
+
+---
+
+# Scene 07
+
+(To be updated after implementation.)
+
+---
+
+# Scene 08
+
+(To be updated after implementation.)
+
+---
+
+# General
+
+* Further optimize bundle size.
+* Improve mobile GPU efficiency.
+* Expand automated testing.
+* Add optional ambient audio.
+* Improve SEO content.
+* Add structured data.
+* Enhance loading experience.
+
+---
+
+# Rule
+
+Items in this backlog improve an already working experience.
+
+They must never replace or delay implementation of the planned scene roadmap.

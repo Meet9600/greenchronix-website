@@ -1,275 +1,314 @@
-SCENE 03 — CAPABILITIES
+# SCENE 03 — ENGINEERING UNIVERSE
+
+## Status
+
+**Locked**
 
 Version: 1.0
 
-Status: Approved
+---
 
-⸻
+# Purpose
 
-Goal
+Scene 03 transforms GreenChronix's engineering philosophy into tangible capabilities.
 
-Demonstrate GreenChronix’s capabilities through an interactive experience rather than a traditional service list.
+Rather than presenting a list of services, the visitor explores an interconnected Engineering Universe where each capability is represented as a living engineering domain.
 
-Visitors should understand that GreenChronix engineers complete systems, not isolated software features.
+The objective is to communicate that GreenChronix delivers complete engineering ecosystems rather than isolated technologies.
 
-⸻
+---
 
-Duration
+# Narrative
 
-15–20 seconds
+The Engineering Core expands beyond its internal philosophy network.
 
-⸻
+Five Engineering Domains emerge and orbit around the Core.
 
-Emotion
+These domains represent the major engineering disciplines offered by GreenChronix.
 
-Understanding
+The visitor explores them as parts of one connected universe.
 
-↓
+---
 
-Excitement
+# Emotional Goal
 
-↓
+The visitor should feel:
 
-Confidence
+* Capability
+* Scale
+* Confidence
+* Technical depth
+* Curiosity
 
-⸻
+The scene should suggest that GreenChronix can solve complex problems across multiple engineering disciplines.
 
-Story
+---
 
-The Engineering Core continues evolving.
+# Engineering Core State
 
-Five major capability nodes gradually emerge around it.
+State
 
-Each node represents an engineering domain.
+Living Network → Engineering Universe
 
-When selected, the environment adapts to reflect that capability.
+Characteristics
 
-⸻
+* Core remains central.
+* Domains orbit around it.
+* Energy continuously flows between Core and domains.
+* Internal glow reacts subtly to interactions.
+
+The Engineering Core powers every capability.
+
+---
+
+# Engineering Domains
+
+## Artificial Intelligence
+
+Examples
+
+* AI Agents
+* LLM Applications
+* Computer Vision
+* Intelligent Automation
+
+---
+
+## Data Engineering
+
+Examples
+
+* Data Pipelines
+* ETL
+* Analytics
+* Decision Intelligence
+
+---
+
+## Cloud Infrastructure
+
+Examples
+
+* Cloud Architecture
+* DevOps
+* Containers
+* Scalability
+
+---
+
+## Enterprise Applications
+
+Examples
+
+* ERP
+* CRM
+* Workflow Systems
+* Internal Platforms
+
+---
+
+## Cybersecurity
+
+Examples
+
+* Secure Architecture
+* Identity
+* Risk Management
+* Compliance
+
+---
+
+# Camera
+
+Movement
+
+* Pull back gradually.
+* Reveal the complete Engineering Universe.
+* Maintain focus on the Core.
+* Slight cinematic orbit during interactions.
+
+Movement should remain smooth and deliberate.
+
+---
+
+# World
+
+Environment
+
+* Existing particles remain active.
+* Additional orbital motion appears.
+* Subtle connection lines between domains.
+* Lighting adapts gently to the active domain.
+
+The environment should feel alive without becoming visually busy.
+
+---
+
+# HTML Layout
+
+Uses the shared SceneLayout.
+
+Desktop
+
+* Left-aligned content.
+* Stable safe content zone.
+* Consistent spacing.
+
+Mobile
+
+* Upper safe area for text.
+* Engineering Universe shifted lower through layout rules.
+
+No overlap between UI and 3D content.
+
+---
+
+# Typography
 
 Headline
 
 Engineering Intelligent Systems.
 
-⸻
-
 Supporting Text
 
-From artificial intelligence to cloud infrastructure, GreenChronix designs and engineers scalable digital ecosystems built for long-term success.
+Every engineering discipline works together to create reliable, scalable, and intelligent digital solutions.
 
-⸻
+Typography Rules
 
-Capability Nodes
+* Match previous scenes.
+* Balanced wrapping.
+* Strong visual hierarchy.
+* Minimal wording.
 
-Artificial Intelligence
+---
 
-Visual
-
-Neural network visualization.
-
-Soft flowing connections.
-
-Capabilities
-
-• AI Agents
-
-• Large Language Models
-
-• Machine Learning
-
-• Computer Vision
-
-• Predictive Analytics
-
-⸻
-
-Data Engineering
-
-Visual
-
-Flowing data streams.
-
-Animated pipelines.
-
-Capabilities
-
-• Data Platforms
-
-• ETL
-
-• Dashboards
-
-• Analytics
-
-• Data Warehousing
-
-⸻
-
-Cloud & Infrastructure
-
-Visual
-
-Floating cloud architecture.
-
-Connected servers.
-
-Capabilities
-
-• AWS
-
-• Azure
-
-• Google Cloud
-
-• Docker
-
-• Kubernetes
-
-⸻
-
-Enterprise Applications
-
-Visual
-
-Modular software architecture.
-
-Expandable interface blocks.
-
-Capabilities
-
-• SaaS Platforms
-
-• ERP
-
-• CRM
-
-• Automation
-
-• Internal Tools
-
-⸻
-
-Cybersecurity
-
-Visual
-
-Protected digital shield.
-
-Encrypted network.
-
-Capabilities
-
-• Security Reviews
-
-• Secure Development
-
-• Authentication
-
-• Monitoring
-
-• Risk Assessment
-
-⸻
-
-Interaction
+# Interaction
 
 Hover
 
-Glow.
-
-Expand.
-
-Display summary.
+* Highlight selected domain.
+* Increase emissive intensity.
+* Animate nearby connections.
+* Reveal concise tooltip.
 
 Click
 
-Expand into detailed panel.
+* Camera gently reframes.
+* Selected domain expands slightly.
+* Supporting engineering details appear within the 3D world.
+* Other domains reduce emphasis but remain visible.
 
-No page reload.
+Keyboard
 
-No modal.
+* Arrow keys cycle through domains.
+* Enter activates.
+* Escape returns to overview.
 
-The environment itself changes.
+---
 
-⸻
+# Motion Language
 
-Camera
+Maintain:
 
-Orbit slightly around the Engineering Core.
+* Calm
+* Purposeful
+* Premium
+* Continuous
 
-Always keep the Core visible.
+Transitions should never interrupt the visitor's journey.
 
-The Core is the heart of every capability.
+---
 
-⸻
+# Performance
 
-Motion
+Reuse all existing rendering systems.
 
-Smooth.
+Adaptive quality adjusts:
 
-Purposeful.
+* Particle density
+* Domain complexity
+* Lighting quality
+* Material fidelity
 
-Calm.
+No duplicate systems.
 
-No unnecessary rotation.
+---
 
-No excessive particle explosions.
+# Accessibility
 
-⸻
+Requirements
 
-Mobile
+* Keyboard navigation
+* Visible focus indicators
+* Reduced Motion support
+* Responsive layout
+* Screen reader compatibility
 
-Stack capabilities vertically.
+Every domain must be accessible without a mouse.
 
-Tap expands.
+---
 
-Optimized animation.
+# Transition to Scene 04
 
-⸻
+As scrolling continues:
 
-Accessibility
+* Engineering Domains slow their orbit.
+* Energy converges back toward the Core.
+* The Core restructures into the Engineering Pipeline.
+* Camera begins moving forward.
 
-Keyboard navigation.
+The transformation should feel like capability becoming execution.
 
-ARIA labels.
+---
 
-Focus indicators.
+# Design Principles
 
-Reduced motion support.
+Capabilities are never isolated.
 
-⸻
+Every domain remains visually connected to the Engineering Core.
 
-Performance Budget
+The visitor should understand that GreenChronix engineers integrated systems rather than individual services.
 
-Maintain 60 FPS.
+---
 
-Lazy load heavy assets.
+# Acceptance Criteria
 
-Only load capability assets when required.
+✓ Five engineering domains remain visible.
 
-⸻
+✓ Core remains dominant.
 
-Deliverables
+✓ Hover and click interactions are smooth.
 
-Capability Network
+✓ Camera framing remains balanced.
 
-Interactive Nodes
+✓ Typography never overlaps the 3D world.
 
-Expandable Panels
+✓ Transition into Scene 04 feels natural.
 
-Animated Environment
+---
 
-Transition to Scene 04
+# Future Polish Ideas
 
-⸻
+* Richer procedural domain animations.
+* Dynamic orbital behavior.
+* Enhanced energy propagation.
+* More expressive idle motion.
 
-Success Criteria
+---
 
-Visitors should understand:
+# Dependencies
 
-GreenChronix delivers complete engineering solutions rather than isolated technical services.
+Uses
 
-⸻
+* Experience
+* SceneLayout
+* Engineering Core
+* Domain Nodes
+* Camera Engine
+* Lighting Engine
+* Particle Engine
+* Scene Manager
+* World Engine
+* Performance Manager
 
-Status
-
-Approved v1.0
+No scene-specific rendering architecture should be introduced.

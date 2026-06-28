@@ -1,103 +1,122 @@
 # GreenChronix Launch Criteria
 
-## Global
+Version: 1.0
 
-* [ ] No TypeScript errors
-* [ ] No ESLint errors
-* [ ] Production build succeeds
-* [ ] Lighthouse Performance ≥ 90
-* [ ] Lighthouse Accessibility ≥ 95
-* [ ] Lighthouse Best Practices ≥ 95
-* [ ] Lighthouse SEO ≥ 95
-* [ ] No console errors
-* [ ] Responsive from 320px to 4K
-* [ ] Reduced Motion supported
-* [ ] Keyboard navigation works throughout the experience
+Status: Living Document
 
 ---
 
-## Scene 01 – Arrival
+# Purpose
 
-* [ ] Engineering Core loads correctly
-* [ ] Hero headline is fully visible
-* [ ] CTA is accessible
-* [ ] Camera animation is smooth
-* [ ] No layout shift
+This document defines the minimum quality standard required before the GreenChronix website is considered production-ready.
+
+Launch is not determined by feature count, but by engineering quality, usability, performance, accessibility, and narrative consistency.
 
 ---
 
-## Scene 02 – Engineering Philosophy
+# Narrative
 
-* [ ] Text never overlaps the 3D world
-* [ ] Engineering principles are readable
-* [ ] Hover interactions respond smoothly
-* [ ] Keyboard navigation works
+The visitor should experience one continuous engineering journey from Scene 01 through Scene 08.
 
----
+Every scene must evolve naturally into the next.
 
-## Scene 03 – Engineering Universe
+No abrupt transitions.
 
-* [ ] Five domains render correctly
-* [ ] Domain selection updates the environment
-* [ ] Engineering Core remains visible
-* [ ] Camera framing is correct
-* [ ] Accessibility verified
+No disconnected experiences.
 
 ---
 
-## Scene 04 – Engineering Pipeline
-
-* [ ] Pipeline stages appear in order
-* [ ] Energy flow is continuous
-* [ ] Camera follows the pipeline
-* [ ] Hover reveals stage information
-* [ ] No clipping or visual artifacts
-
----
-
-## Scene 05 – Engineering Proof
-
-* [ ] Proof nodes display correctly
-* [ ] Camera transitions are smooth
-* [ ] Supporting information is readable
-
----
-
-## Scene 06 – Technology Ecosystem
-
-* [ ] Technology visualization loads correctly
-* [ ] Interactions remain performant
-
----
-
-## Scene 07 – Trust & Partnership
-
-* [ ] Trust section communicates credibility
-* [ ] Motion remains subtle
-
----
-
-## Scene 08 – Contact Experience
-
-* [ ] Contact interaction works
-* [ ] Forms validate correctly
-* [ ] Final CTA is accessible
-
----
+# Technical Requirements
 
 ## Performance
 
-* [ ] Stable 60 FPS on modern desktop
-* [ ] Stable mobile performance
-* [ ] No excessive GPU spikes
-* [ ] Assets lazy-loaded correctly
+* 60 FPS on modern desktop hardware.
+* Responsive interaction across supported devices.
+* Adaptive quality functioning correctly.
+* No memory leaks.
+* No unnecessary re-renders.
 
 ---
 
-## Final Approval
+## Accessibility
 
-* [ ] Founder Review
-* [ ] Design Review
-* [ ] Accessibility Review
-* [ ] Performance Review
-* [ ] Ready for Production
+* Keyboard navigation throughout.
+* Visible focus indicators.
+* Reduced Motion support.
+* Responsive layouts.
+* Screen reader compatibility.
+
+---
+
+## Visual Consistency
+
+* Engineering Core present throughout the experience.
+* Shared material language.
+* Consistent typography.
+* Consistent spacing.
+* Consistent lighting.
+* Consistent motion.
+
+---
+
+## Scene Completion
+
+Before launch, the following scenes must be complete:
+
+* Scene 01 — Arrival
+* Scene 02 — Engineering Philosophy
+* Scene 03 — Engineering Universe
+* Scene 04 — Engineering Pipeline
+* Scene 05 — Engineering Impact
+* Scene 06 — Engineering Stack
+* Scene 07 — Trust & Partnership
+* Scene 08 — Contact Experience
+
+---
+
+## Engineering Standards
+
+* TypeScript clean.
+* ESLint clean.
+* Successful production build.
+* No console errors.
+* No placeholder assets.
+* No dead code.
+
+---
+
+## Deployment
+
+* GitHub synchronized.
+* Vercel deployment successful.
+* HTTPS enabled.
+* Metadata complete.
+* SEO verified.
+* Open Graph configured.
+* Favicon and branding finalized.
+
+---
+
+# Launch Checklist
+
+Before launch, confirm:
+
+✓ Narrative complete
+
+✓ Visual language consistent
+
+✓ Accessibility complete
+
+✓ Performance verified
+
+✓ Responsive design verified
+
+✓ Production deployment successful
+
+✓ Documentation synchronized
+
+---
+
+# Definition of Done
+
+The website is considered complete when visitors remember GreenChronix as an engineering company that builds intelligent systems through disciplined thinking, not because of flashy animations or visual effects.

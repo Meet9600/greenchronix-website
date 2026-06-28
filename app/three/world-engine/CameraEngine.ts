@@ -52,22 +52,27 @@ export class CameraEngine {
       this.isParallaxEnabled = true;
     }
     
-    if (state.currentSceneId === 3 || state.currentSceneId === 4) {
-      // Shared progression logic for Pipeline and Impact scenes
-      // Scene 3: 0.5 -> 0.75
-      // Scene 4: 0.75 -> 1.0
-      // Total progress from 0.5 to 1.0 mapped to 0 -> 1
-      const p = Math.max(0, Math.min(1, (state.scrollProgress - 0.5) / 0.5));
+    if (state.currentSceneId === 3 || state.currentSceneId === 4 || state.currentSceneId === 5) {
+      // Progression logic for Pipeline, Impact, and Architecture scenes
       
-      // Camera Z moves from 2 down to -28 smoothly across both scenes
-      const targetZ = 2 - (p * 30);
+      // Scene 3 (Pipeline): 0.5 -> 0.66
+      const pPipeline = Math.max(0, Math.min(1, (state.scrollProgress - 0.5) / 0.16));
+      let targetZ = 2 - (pPipeline * 31); // ends at Z = -29
       
-      // In Scene 05 (p > 0.5), gradually rise and pitch down slightly
-      const isImpact = p > 0.5;
-      const impactProgress = isImpact ? (p - 0.5) * 2 : 0; // 0 to 1 during Scene 5
+      // Scene 4 (Impact): 0.66 -> 0.83
+      const pImpact = Math.max(0, Math.min(1, (state.scrollProgress - 0.66) / 0.17));
+      let targetY = pImpact * 4.5;
+      let targetRotX = -(pImpact * 0.15);
       
-      const targetY = impactProgress * 4.5; 
-      const targetRotX = -(impactProgress * 0.15);
+      // Scene 5 (Architecture): 0.83 -> 1.0
+      const pArch = Math.max(0, Math.min(1, (state.scrollProgress - 0.83) / 0.17));
+      
+      if (pArch > 0) {
+        // Move back to view the Core (which unfolds into Architecture)
+        targetZ = -29 + (pArch * 35); // ends at Z = 6
+        targetY = 4.5 + (pArch * 20); // climbs to Y = 24.5
+        targetRotX = -0.15 - (pArch * 0.1); // pitch down slightly more
+      }
 
       gsap.to(this.camera.position, {
         x: 0,

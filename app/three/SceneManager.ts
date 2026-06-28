@@ -9,6 +9,8 @@ export class SceneManager {
     activePipelineStageId: null,
     activeImpactDomainId: null,
     hoveredImpactDomainId: null,
+    activeArchitectureLayerId: null,
+    hoveredArchitectureLayerId: null,
   };
 
   private listeners: Set<(state: SceneState) => void> = new Set();
@@ -37,7 +39,9 @@ export class SceneManager {
       activeDomainId: id === 2 ? this.state.activeDomainId : null,
       activePipelineStageId: id === 3 ? this.state.activePipelineStageId : null,
       activeImpactDomainId: id === 4 ? this.state.activeImpactDomainId : null,
-      hoveredImpactDomainId: null
+      hoveredImpactDomainId: null,
+      activeArchitectureLayerId: id === 5 ? this.state.activeArchitectureLayerId : null,
+      hoveredArchitectureLayerId: null,
     };
     this.notify();
   }
@@ -60,6 +64,18 @@ export class SceneManager {
   public setHoveredImpactDomain(id: string | null) {
     if (this.state.hoveredImpactDomainId !== id) {
       this.state = { ...this.state, hoveredImpactDomainId: id };
+      this.notify();
+    }
+  }
+
+  public setArchitectureLayer(id: string | null) {
+    this.state = { ...this.state, activeArchitectureLayerId: id };
+    this.notify();
+  }
+
+  public setHoveredArchitectureLayer(id: string | null) {
+    if (this.state.hoveredArchitectureLayerId !== id) {
+      this.state = { ...this.state, hoveredArchitectureLayerId: id };
       this.notify();
     }
   }

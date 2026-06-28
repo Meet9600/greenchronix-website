@@ -4,175 +4,354 @@ Version: 1.0
 
 Status: Active
 
-Project Codename:
-ORBIT
-
 ---
 
 # Vision
 
-Create one of the world's best engineering company websites.
+GreenChronix is not a software agency.
 
-Not by using excessive animation.
+It is an engineering company that designs intelligent digital systems.
 
-Not by using excessive 3D.
+The website should communicate this through experience rather than marketing.
 
-But by creating an experience that communicates confidence, intelligence, and engineering excellence.
+Visitors should feel like they are travelling through a living engineering system.
 
-Visitors should immediately understand that GreenChronix solves complex problems with clarity.
+Every scene should naturally evolve from the previous one.
 
----
-
-# Core Objective
-
-Transform visitors into believers.
-
-Not through marketing.
-
-Through experience.
+No section should feel disconnected.
 
 ---
 
-# Primary Audience
+# Experience Philosophy
 
-• Startup founders
+The website is one continuous journey.
 
-• CTOs
+Every transition represents an evolution.
 
-• Product leaders
+Never replace a scene.
 
-• Enterprise decision makers
+Always transform it.
 
----
-
-# Emotional Journey
-
-Unknown
+Engineering Core
 
 ↓
 
-Curiosity
+Engineering Philosophy
 
 ↓
 
-Wonder
+Engineering Universe
 
 ↓
 
-Understanding
+Engineering Pipeline
 
 ↓
 
-Trust
+Engineering Impact
 
 ↓
 
-Confidence
+Engineering Stack
 
 ↓
 
-Action
+Trust & Partnership
 
-Every page must move the visitor exactly one emotional step forward.
+↓
 
----
-
-# Design Principles
-
-Calm.
-
-Premium.
-
-Precise.
-
-Timeless.
-
-Minimal.
-
-Purposeful.
+Contact Experience
 
 ---
 
-# Engineering Principles
+# Core Principles
 
-Performance before decoration.
+The website must always feel:
 
-Accessibility before complexity.
+* Calm
+* Intentional
+* Premium
+* Intelligent
+* Minimal
 
-Systems before pages.
+Avoid visual noise.
 
-Quality before speed.
+Avoid unnecessary animation.
 
-Maintainability before trends.
-
----
-
-# Experience Principles
-
-Visitors should feel like they are exploring a living engineering system.
-
-Not browsing a marketing website.
+Avoid marketing clichés.
 
 ---
 
-# Success
+# The Engineering Core
 
-If visitors remember one thing, it should be:
+The Engineering Core is the permanent symbol of GreenChronix.
 
-"GreenChronix brings clarity to complexity."
+It exists in every scene.
 
----
+Its appearance evolves throughout the journey, but it never disappears.
 
-# Non-Negotiables
+The Core represents:
 
-Every interaction must have purpose.
+* Intelligence
+* Engineering
+* Long-term thinking
+* Connected systems
+* Continuous evolution
 
-Every animation must communicate something.
-
-Every component must be reusable.
-
-Every page must load quickly.
-
-Every decision must strengthen the brand.
+Every system originates from the Core.
 
 ---
 
-# Technical Direction
+# Scene Overview
 
-Next.js
+## Scene 01
 
-TypeScript
+Arrival
 
-Tailwind CSS
+Purpose
 
-React Three Fiber
+Introduce GreenChronix.
 
-Three.js
+Emotion
 
-GSAP
-
-shadcn/ui
-
-Motion One where appropriate
-
-Dynamic loading
-
-Server Components where appropriate
-
-Accessibility first
-
-SEO first
-
-Performance budget:
-
-Desktop Lighthouse
-
-95+
-
-Mobile Lighthouse
-
-90+
+Curiosity.
 
 ---
 
-# End Vision
+## Scene 02
+
+Engineering Philosophy
+
+Purpose
+
+Reveal engineering principles.
+
+Emotion
+
+Trust.
+
+---
+
+## Scene 03
+
+Engineering Universe
+
+Purpose
+
+Present engineering capabilities.
+
+Emotion
+
+Technical depth.
+
+---
+
+## Scene 04
+
+Engineering Pipeline
+
+Purpose
+
+Show the engineering process.
+
+Emotion
+
+Confidence.
+
+---
+
+## Scene 05
+
+Engineering Impact
+
+Purpose
+
+Show engineering outcomes.
+
+Emotion
+
+Business value.
+
+---
+
+## Scene 06
+
+Engineering Stack
+
+Purpose
+
+Reveal how modern systems are architected.
+
+Emotion
+
+Understanding.
+
+---
+
+## Scene 07
+
+Trust & Partnership
+
+Purpose
+
+Demonstrate how GreenChronix collaborates with clients.
+
+Emotion
+
+Partnership.
+
+---
+
+## Scene 08
+
+Contact Experience
+
+Purpose
+
+Invite meaningful conversations.
+
+Emotion
+
+Optimism.
+
+---
+
+# Visual Language
+
+Permanent visual identity:
+
+* Glass
+* Wireframe
+* Emerald emissive
+* Soft volumetric depth
+* Large negative space
+* Minimal interface
+* Architectural composition
+
+No gradients for decoration.
+
+No unnecessary ornamentation.
+
+---
+
+# Motion Language
+
+Motion must always be:
+
+* Slow
+* Purposeful
+* Cinematic
+* Calm
+* Continuous
+
+Never use:
+
+* Bounce
+* Elastic easing
+* Aggressive scaling
+* Fast spinning
+* Random movement
+
+GSAP is the primary animation system.
+
+---
+
+# Layout Philosophy
+
+Every scene uses the shared SceneLayout.
+
+Desktop
+
+Left content.
+
+Right 3D composition.
+
+Mobile
+
+Top content.
+
+Lower 3D composition.
+
+Maintain identical spacing rhythm throughout the website.
+
+---
+
+# Camera Philosophy
+
+The camera behaves like a documentary filmmaker.
+
+It observes.
+
+It explores.
+
+It never distracts.
+
+Camera movement should always support the narrative.
+
+---
+
+# World Philosophy
+
+The world is persistent.
+
+Nothing appears from nowhere.
+
+Nothing disappears without explanation.
+
+Every new structure grows naturally from previous structures.
+
+---
+
+# Accessibility
+
+Every experience must include:
+
+* Keyboard navigation
+* Reduced Motion support
+* Visible focus indicators
+* Responsive layouts
+* High contrast typography
+
+Accessibility is part of engineering quality.
+
+---
+
+# Performance Philosophy
+
+The website should scale automatically.
+
+PerformanceManager determines quality.
+
+Never sacrifice usability for visual effects.
+
+Maintain smooth interaction across a wide range of devices.
+
+---
+
+# Engineering Philosophy
+
+The website itself should reflect GreenChronix engineering standards.
+
+Reusable systems.
+
+Clear architecture.
+
+Minimal duplication.
+
+Maintainable code.
+
+Every implementation should reinforce these principles.
+
+---
+
+# Success Criteria
+
+The visitor should leave the experience understanding:
+
+* GreenChronix solves meaningful problems.
+* Engineering drives every decision.
+* Intelligent systems are built through disciplined processes.
+* Long-term thinking is more important than trends.
+* Technology is a means, not the message.
+
+The website succeeds when visitors remember the engineering philosophy rather than individual technologies.
