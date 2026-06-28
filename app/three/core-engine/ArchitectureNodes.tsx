@@ -227,6 +227,7 @@ function LayerNode({
 
 function EnergySpine({ activeLayerId, hoveredLayerId }: { activeLayerId?: string | null, hoveredLayerId?: string | null }) {
   const spineRef = useRef<THREE.Group>(null);
+  const [initialY] = useState(() => Array.from({length: 15}, () => Math.random() * 24));
   
   // Height calculation: How high does the energy flow need to go?
   const activeIndex = ARCHITECTURE_LAYERS.findIndex(l => l.id === activeLayerId);
@@ -258,8 +259,8 @@ function EnergySpine({ activeLayerId, hoveredLayerId }: { activeLayerId?: string
       
       {/* Flowing energy packets */}
       <group ref={spineRef}>
-        {Array.from({length: 15}).map((_, i) => (
-          <mesh key={i} position={[0, Math.random() * 24, 0]}>
+        {initialY.map((y, i) => (
+          <mesh key={i} position={[0, y, 0]}>
             <boxGeometry args={[0.3, 0.8, 0.3]} />
             <meshBasicMaterial color={COLORS.emeraldPrimary} transparent opacity={0.8} />
           </mesh>

@@ -2,7 +2,7 @@
 
 import React, { useState, useMemo, useEffect, useRef } from "react";
 import * as THREE from "three";
-import { useFrame } from "@react-three/fiber";
+import { useFrame, ThreeEvent } from "@react-three/fiber";
 import { Html, Line } from "@react-three/drei";
 import gsap from "gsap";
 import { ENGINEERING_DOMAINS, COLORS } from "../../config";
@@ -100,7 +100,7 @@ function DomainNode({ data, activeDomainId }: { data: typeof ENGINEERING_DOMAINS
     }
   }, [data.geometry]);
 
-  const handleClick = (e: any) => {
+  const handleClick = (e: ThreeEvent<MouseEvent>) => {
     e.stopPropagation();
     sceneManager.setDomain(isActive ? null : data.id);
   };
@@ -110,7 +110,7 @@ function DomainNode({ data, activeDomainId }: { data: typeof ENGINEERING_DOMAINS
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === "Enter" || e.key === " ") {
       e.preventDefault();
-      handleClick(e as any);
+      handleClick(e as unknown as ThreeEvent<MouseEvent>);
     }
   };
 
@@ -128,8 +128,8 @@ function DomainNode({ data, activeDomainId }: { data: typeof ENGINEERING_DOMAINS
         ref={meshRef}
         geometry={geo}
         onClick={handleClick}
-        onPointerOver={(e) => { e.stopPropagation(); setHovered(true); }}
-        onPointerOut={(e) => { e.stopPropagation(); setHovered(false); }}
+        onPointerOver={(e: ThreeEvent<PointerEvent>) => { e.stopPropagation(); setHovered(true); }}
+        onPointerOut={(e: ThreeEvent<PointerEvent>) => { e.stopPropagation(); setHovered(false); }}
       >
         <meshPhysicalMaterial 
           ref={matRef}

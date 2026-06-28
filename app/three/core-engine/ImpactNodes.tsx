@@ -138,7 +138,17 @@ function EnergyFlow({ start, end, color, active }: { start: THREE.Vector3, end: 
   const meshRef = useRef<THREE.InstancedMesh>(null);
   const count = 8;
   const dummy = new THREE.Object3D();
-  const [offsets] = useState(() => Array.from({length: count}, () => Math.random()));
+  const offsetsRef = useRef<number[] | null>(null);
+  if (!offsetsRef.current) {
+    offsetsRef.current = Array.from({length: count}, () => 0);
+  }
+  const offsets = offsetsRef.current;
+  
+  useEffect(() => {
+    for (let i = 0; i < count; i++) {
+      offsets[i] = Math.random();
+    }
+  }, [count, offsets]);
   
   useFrame((state, delta) => {
     if (!meshRef.current || !active) {

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useRef } from "react";
+  import React, { useState, useRef, useEffect } from "react";
 import { useThree, useFrame } from "@react-three/fiber";
 import { Html } from "@react-three/drei";
 import { DebugInfo } from "./types";
@@ -15,7 +15,11 @@ export function DebugOverlayRenderer() {
   const [debugInfo, setDebugInfo] = useState<DebugInfo | null>(null);
   
   const frameCount = useRef(0);
-  const lastTime = useRef(performance.now());
+  const lastTime = useRef(0);
+
+  useEffect(() => {
+    lastTime.current = performance.now();
+  }, []);
 
   useFrame(() => {
     if (!FEATURE_FLAGS.ENABLE_DEBUG_GUI) return;
