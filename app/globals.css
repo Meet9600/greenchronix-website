@@ -1,0 +1,64 @@
+@import 'tailwindcss';
+
+:root {
+	/* Rich graphite — never flat black; matches the 3D world background */
+	--background: #131816;
+	--foreground: #f4f6f5;
+	--muted: #9aa49f;
+	--accent: #10b981;
+	--accent-dim: #0d8a61;
+	--line: rgba(244, 246, 245, 0.12);
+	--panel: rgba(21, 26, 24, 0.78);
+}
+
+@theme inline {
+	--color-background: var(--background);
+	--color-foreground: var(--foreground);
+	--color-muted: var(--muted);
+	--color-accent: var(--accent);
+	--color-accent-dim: var(--accent-dim);
+	--color-line: var(--line);
+	--color-panel: var(--panel);
+	--font-sans: var(--font-geist-sans);
+	--font-mono: var(--font-geist-mono);
+}
+
+html {
+	background: var(--background);
+	scroll-behavior: auto;
+}
+
+body {
+	/* Soft emerald ambience at the top — depth instead of flat darkness */
+	background:
+		radial-gradient(
+			ellipse 120% 80% at 50% -10%,
+			rgba(16, 185, 129, 0.06),
+			transparent 55%
+		),
+		var(--background);
+	color: var(--foreground);
+	font-family: var(--font-geist-sans), system-ui, sans-serif;
+}
+
+::selection {
+	background: var(--accent);
+	color: #04110c;
+}
+
+/* Soft glow behind overlay copy for readable text over the 3D world */
+.orbit-copy {
+	text-shadow: 0 1px 24px rgba(8, 11, 10, 0.9);
+}
+
+@media (prefers-reduced-motion: reduce) {
+	html {
+		scroll-behavior: auto;
+	}
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.01ms !important;
+		transition-duration: 0.01ms !important;
+	}
+}
