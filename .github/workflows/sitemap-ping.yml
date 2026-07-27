@@ -1,0 +1,17 @@
+name: Submit Sitemap to Google Search Console
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  ping-google:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping Google Search Console Sitemap
+        run: |
+          echo "Pinging Google Search Console with sitemap..."
+          curl -s -X GET "https://www.google.com/ping?sitemap=https://greenchronix.com/sitemap.xml"
+          echo "Sitemap ping sent successfully."

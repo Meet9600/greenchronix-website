@@ -42,7 +42,7 @@ export function Logo({ className }: { className?: string }) {
     <span className={`inline-flex h-8 items-center md:h-9 ${className ?? ''}`}>
       {src ? (
         <img
-          src={src || '/placeholder.svg'}
+          src={src || '/logo-full.png'}
           alt="GreenChronix"
           className="h-8 w-auto md:h-9"
           draggable={false}

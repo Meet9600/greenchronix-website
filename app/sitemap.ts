@@ -1,12 +1,16 @@
 import type { MetadataRoute } from 'next'
 
 export default function sitemap(): MetadataRoute.Sitemap {
+	const baseUrl = 'https://greenchronix.com'
+	const currentDate = new Date().toISOString()
+
 	return [
 		{
-			url: 'https://greenchronix.com',
-			lastModified: new Date(),
-			changeFrequency: 'monthly',
-			priority: 1,
+			url: baseUrl,
+			lastModified: currentDate,
+			changeFrequency: 'weekly',
+			priority: 1.0,
 		},
 	]
 }
+

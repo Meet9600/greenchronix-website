@@ -14,20 +14,25 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
 	metadataBase: new URL('https://greenchronix.com'),
-	title: 'GreenChronix | Lean tech, shipped fast.',
+	title: 'GreenChronix | Lean Engineering Studio | Web Platforms, AI Agents & Blockchain',
 	description:
-		'A lean engineering studio shipping web platforms, AI agents, blockchain systems and cloud infrastructure. Clean code, honest timelines, 15 to 35 day delivery.',
+		'A lean software engineering studio shipping production web platforms, custom AI agents, blockchain systems, and cloud infrastructure. 15 to 35 day delivery.',
 	keywords: [
-		'web development',
-		'AI agents',
-		'blockchain development',
-		'automation',
-		'Next.js studio',
 		'GreenChronix',
+		'Green Chronix engineering studio',
+		'Next.js development company',
+		'custom AI agent development service',
+		'AI chatbot agency',
+		'blockchain development services',
+		'Web3 software studio',
+		'MVP web app development',
+		'lean tech engineering studio',
+		'software development agency Gandhinagar',
+		'business automation services',
 	],
 	alternates: { canonical: 'https://greenchronix.com' },
 	openGraph: {
-		title: 'GreenChronix | Lean tech, shipped fast.',
+		title: 'GreenChronix | Lean Engineering Studio | Web Platforms, AI & Blockchain',
 		description:
 			'Web platforms, AI agents, blockchain and cloud, engineered by a lean senior team. 15 to 35 day delivery, 30 days of support included.',
 		url: 'https://greenchronix.com',
@@ -36,11 +41,11 @@ export const metadata: Metadata = {
 	},
 	twitter: {
 		card: 'summary_large_image',
-		title: 'GreenChronix | Lean tech, shipped fast.',
+		title: 'GreenChronix | Lean Engineering Studio',
 		description:
-			'Web platforms, AI agents, blockchain and cloud, engineered by a lean senior team.',
+			'Web platforms, custom AI agents, blockchain systems and cloud infrastructure.',
 	},
-	generator: 'v0.app',
+	generator: 'GreenChronix',
 }
 
 export const viewport: Viewport = {
