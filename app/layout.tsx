@@ -45,6 +45,14 @@ export const metadata: Metadata = {
 		description:
 			'Web platforms, custom AI agents, blockchain systems and cloud infrastructure.',
 	},
+	icons: {
+		icon: [
+			{ url: '/icon.svg', type: 'image/svg+xml' },
+			{ url: '/logo-mark.png', type: 'image/png' },
+		],
+		shortcut: '/icon.svg',
+		apple: '/icon.svg',
+	},
 	generator: 'GreenChronix',
 }
 
